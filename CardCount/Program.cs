@@ -57,6 +57,7 @@ namespace CardCount
 
             for(int i = 0; i < numberOfCards; ++i)
             {
+                Console.WriteLine("Введите номинал следующей карты");
                 var card = Console.ReadLine();
 
                 switch(card)
