@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomMatrix", "RandomMatri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallestElement", "..\SmallestElement\SmallestElement.csproj", "{B9529D97-14DE-4720-823A-11A221F36477}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GueesTheNumber", "..\GueesTheNumber\GueesTheNumber.csproj", "{D1488336-7448-427E-A53A-5ECAE22EA437}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B9529D97-14DE-4720-823A-11A221F36477}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9529D97-14DE-4720-823A-11A221F36477}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9529D97-14DE-4720-823A-11A221F36477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1488336-7448-427E-A53A-5ECAE22EA437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1488336-7448-427E-A53A-5ECAE22EA437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1488336-7448-427E-A53A-5ECAE22EA437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1488336-7448-427E-A53A-5ECAE22EA437}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
