@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineBreak", "LineBreak.csproj", "{23BBCCDD-99A9-436B-9257-249E631F9F57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordTransposition", "..\WordTransposition\WordTransposition.csproj", "{AA9F49DB-71B0-442F-AF29-B7FB64C8C643}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{23BBCCDD-99A9-436B-9257-249E631F9F57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23BBCCDD-99A9-436B-9257-249E631F9F57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23BBCCDD-99A9-436B-9257-249E631F9F57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA9F49DB-71B0-442F-AF29-B7FB64C8C643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA9F49DB-71B0-442F-AF29-B7FB64C8C643}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA9F49DB-71B0-442F-AF29-B7FB64C8C643}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA9F49DB-71B0-442F-AF29-B7FB64C8C643}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
