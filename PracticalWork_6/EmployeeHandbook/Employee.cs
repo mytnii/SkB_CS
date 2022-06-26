@@ -48,6 +48,12 @@ namespace EmployeeHandbook
 
             Console.WriteLine("введите место рождения");
             this._birthPlace = Console.ReadLine();
+
+            this._age = _date.Year - _birthDate.Year;
+            if(_date.Year < _birthDate.Year)
+            {
+                this._age--;
+            }
         }
     }
 }

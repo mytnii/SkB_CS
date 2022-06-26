@@ -37,6 +37,28 @@ namespace EmployeeHandbook
         static void Main(string[] args)
         {
             Employee employee = new Employee();
+
+            employee.KeyboardInput();
+            Filling(employee);
+        }
+
+        /// <summary>
+        /// Запись в файл
+        /// </summary>
+        /// <param name="employee">Сотрудник</param>
+        static void Filling(Employee employee)
+        {
+            string text =
+                $"{employee._id}#{employee._date}#" +
+                $"{employee._lastName}#{employee._firstName}#" +
+                $"{employee._patronumic}#{employee._age}#" +
+                $"{employee._growth}#{employee._birthDate}#" +
+                $"{employee._birthPlace}";
+
+            FileStream fs = new FileStream("EmployeeHandbook.txt", FileMode.Append);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.Write(text);
+            sw.Close();
         }
     }
 }
