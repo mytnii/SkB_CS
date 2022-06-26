@@ -36,25 +36,7 @@ namespace EmployeeHandbook
     {
         static void Main(string[] args)
         {
-            Employee employee = new Employee
-                (
-                1, "Аверкиев", "Роман", "Евгеньевич", 187,
-                new DateTime(1983, 12, 23), "Город Самара"
-                );
-
-            ConsoleOperation.PrintEmployee(employee);
-
-            FileHandling.Filling(employee);
-
-            List<Employee> list = new List<Employee>();
-
-            Employee.CreatingLisOfEmployees(ref list);
-
-           for(int i = 0; i < list.Count; i++)
-            {
-                ConsoleOperation.PrintEmployee( list[i]);
-            }
-
+            Employee employee = new Employee();
         }
     }
 }
