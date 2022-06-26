@@ -36,12 +36,10 @@ namespace EmployeeHandbook
     {
         static void Main(string[] args)
         {
-            Employee employee = new Employee();
+            
             string file = "EmployeeHandbook.txt";
 
-            //employee.KeyboardInput();
-            //Filling(employee);
-            PrintEmployees(file);
+            SelectionMenu(file);
         }
 
        /// <summary>
@@ -93,6 +91,10 @@ namespace EmployeeHandbook
             return line;
         }
 
+        /// <summary>
+        /// Печать на экран
+        /// </summary>
+        /// <param name="file">Имя файла</param>
         static void PrintEmployees(string file)
         {
             string[] str = ReadFromFile(file);
@@ -108,6 +110,43 @@ namespace EmployeeHandbook
                 }
                 Console.WriteLine("----------------------------------");
             }
+        }
+
+        /// <summary>
+        /// Мени
+        /// </summary>
+        /// <param name="file">Имя файла</param>
+        static void SelectionMenu(string file)
+        {
+
+            ConsoleKeyInfo key;
+            do
+            {
+                Console.WriteLine("Выбирите действие");
+                Console.WriteLine("1 - вывести данные на экран");
+                Console.WriteLine("2 - Заполнить данные и добавить новую запись");
+
+                byte size = Convert.ToByte(Console.ReadLine());
+                switch (size)
+                {
+                    case 1:
+                        if (File.Exists(file))
+                            PrintEmployees(file);
+                        break;
+                    case 2:
+                        Employee employee = new Employee();
+                        employee.KeyboardInput();
+                        Filling(employee, file);
+                        break;
+                }
+
+                Console.WriteLine("Хотите продолжить Y/N");
+                key = Console.ReadKey();
+
+                Console.WriteLine();
+            } while (key.Key == ConsoleKey.Y);
+
+            Console.WriteLine("До свидания");
         }
     }
 }
