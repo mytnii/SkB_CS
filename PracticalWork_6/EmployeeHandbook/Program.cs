@@ -37,16 +37,19 @@ namespace EmployeeHandbook
         static void Main(string[] args)
         {
             Employee employee = new Employee();
+            string file = "EmployeeHandbook.txt";
 
-            employee.KeyboardInput();
-            Filling(employee);
+            //employee.KeyboardInput();
+            //Filling(employee);
+            PrintEmployees(file);
         }
 
-        /// <summary>
-        /// Запись в файл
-        /// </summary>
-        /// <param name="employee">Сотрудник</param>
-        static void Filling(Employee employee)
+       /// <summary>
+       /// Запись в файл
+       /// </summary>
+       /// <param name="employee">Сотрудник</param>
+       /// <param name="file">Имя файла</param>
+        static void Filling(Employee employee, string file)
         {
             string text =
                 $"{employee._id}#{employee._date}#" +
@@ -55,10 +58,56 @@ namespace EmployeeHandbook
                 $"{employee._growth}#{employee._birthDate}#" +
                 $"{employee._birthPlace}";
 
-            FileStream fs = new FileStream("EmployeeHandbook.txt", FileMode.Append);
+            FileStream fs = new FileStream(file, FileMode.Append);
             StreamWriter sw = new StreamWriter(fs);
-            sw.Write(text);
+            sw.WriteLine(text);
             sw.Close();
+
+            
+        }
+    
+        
+
+        /// <summary>
+        /// Чтение из файла
+        /// </summary>
+        /// <param name="file">Имя файла</param>
+        /// <returns>Массив строк</returns>
+        static string[] ReadFromFile(string file)
+        {
+            StreamReader sr = new StreamReader(file);
+
+            int count = File.ReadAllLines
+                (
+                file
+                ).Length;
+
+            string[] line = new string[count];
+            for(int i = 0; i < count; ++i)
+            {
+                line[i] = sr.ReadLine();
+            }
+
+            sr.Close();
+
+            return line;
+        }
+
+        static void PrintEmployees(string file)
+        {
+            string[] str = ReadFromFile(file);
+            string[] employe;
+
+            for(int i = 0; i < str.Length; ++i)
+            {
+                employe = str[i].Split('#').ToArray();
+
+                foreach(string employee in employe)
+                {
+                    Console.WriteLine(employee);
+                }
+                Console.WriteLine("----------------------------------");
+            }
         }
     }
 }
