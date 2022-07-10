@@ -28,20 +28,29 @@ namespace EmployeeHandbook
         /// Печать сотрудника в консоль
         /// </summary>
         /// <param name="employee">Сотрудник</param>
-        //public static void PrintEmployee(ref Employee employee)
-        //{
+        public static void PrintEmployee(ref Employee employee)
+        {
+            Console.Write($"{employee.id,4}");
+            TextColorChange();
+            Console.Write($"{employee.date,15}");
+            TextColorChange();
+            Console.Write($"{employee.lastName,15}");
+            TextColorChange();
+            Console.Write($"{employee.firstName,15}");
+            TextColorChange();
+            Console.Write($"{employee.patronumic,15}");
+            TextColorChange();
+            Console.Write($"{employee.age,15}");
+            TextColorChange();
+            Console.Write($"{employee.growth,4}");
+            TextColorChange();
+            Console.Write($"{employee.brithDate,15}");
+            TextColorChange();
+            Console.Write($"{employee.brithPlace,15}");
+            TextColorChange();
+            EndOfRecord();
 
-
-        //   
-
-        //    Console.ResetColor();
-
-        //    Console.Write($"{employee.id,4}");
-        //    TextColorChange();
-        //    Console.Write($"{employee.date,15}");
-        //    TextColorChange();
-
-        //}
+        }
 
 
         /// <summary>
@@ -85,6 +94,7 @@ namespace EmployeeHandbook
                (
                "----|---------------|---------------|----------|---------------|--------|----|---------------|---------------|"
                );
+            Console.ResetColor();
         }
     }
 }
