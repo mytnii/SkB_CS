@@ -40,7 +40,6 @@ namespace EmployeeHandbook
     {
         static void Main(string[] args)
         {
-            
         }
     }
 }
