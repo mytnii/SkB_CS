@@ -42,6 +42,12 @@ namespace EmployeeHandbook
         {
             Employee employee = new Employee();
 
+            employee.KeyboardInput();
+
+            ConsoleOperation.TablePrint();
+            ConsoleOperation.EndOfRecord();
+            ConsoleOperation.PrintEmployee(ref employee);
+
 
         }
     }

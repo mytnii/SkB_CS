@@ -32,22 +32,23 @@ namespace EmployeeHandbook
         {
             Console.Write($"{employee.id,4}");
             TextColorChange();
-            Console.Write($"{employee.date,15}");
+            Console.Write($"{employee.date,20}");
             TextColorChange();
             Console.Write($"{employee.lastName,15}");
             TextColorChange();
-            Console.Write($"{employee.firstName,15}");
+            Console.Write($"{employee.firstName,10}");
             TextColorChange();
             Console.Write($"{employee.patronumic,15}");
             TextColorChange();
-            Console.Write($"{employee.age,15}");
+            Console.Write($"{employee.age,8}");
             TextColorChange();
             Console.Write($"{employee.growth,4}");
             TextColorChange();
-            Console.Write($"{employee.brithDate,15}");
+            Console.Write($"{employee.brithDate,20}");
             TextColorChange();
             Console.Write($"{employee.brithPlace,15}");
             TextColorChange();
+            Console.WriteLine();
             EndOfRecord();
 
         }
@@ -62,13 +63,13 @@ namespace EmployeeHandbook
             Console.WriteLine
                 (
                 $"{Employees.ID,4}|" +
-                $"{Employees.Создание_записи,15}|" +
+                $"{Employees.Создание_записи,20}|" +
                 $"{Employees.Фамилия,15}|" +
                 $"{Employees.Имя,10}|" +
                 $"{Employees.Отчество,15}|" +
                 $"{Employees.Возраст,8}|" +
                 $"{Employees.Рост,4}|" +
-                $"{Employees.Дата_рождения,15}|" +
+                $"{Employees.Дата_рождения,20}|" +
                 $"{Employees.Место_рождения,15}|"
                 );
             Console.ResetColor();
@@ -92,7 +93,7 @@ namespace EmployeeHandbook
             Console.ForegroundColor= ConsoleColor.Blue;
             Console.WriteLine
                (
-               "----|---------------|---------------|----------|---------------|--------|----|---------------|---------------|"
+               "----|--------------------|---------------|----------|---------------|--------|----|--------------------|---------------|"
                );
             Console.ResetColor();
         }
