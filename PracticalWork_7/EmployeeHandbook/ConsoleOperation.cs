@@ -32,10 +32,7 @@ namespace EmployeeHandbook
         //{
 
 
-        //    Console.WriteLine
-        //        (
-        //        "----|---------------|---------------|----------|---------------|--------|----|---------------|---------------|"
-        //        );
+        //   
 
         //    Console.ResetColor();
 
@@ -76,6 +73,18 @@ namespace EmployeeHandbook
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("|");
             Console.ResetColor();
+        }
+
+        /// <summary>
+        /// Окончание записи
+        /// </summary>
+       public static void EndOfRecord()
+        {
+            Console.ForegroundColor= ConsoleColor.Blue;
+            Console.WriteLine
+               (
+               "----|---------------|---------------|----------|---------------|--------|----|---------------|---------------|"
+               );
         }
     }
 }
