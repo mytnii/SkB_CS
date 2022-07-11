@@ -28,7 +28,7 @@ namespace EmployeeHandbook
         /// Печать сотрудника в консоль
         /// </summary>
         /// <param name="employee">Сотрудник</param>
-        public static void PrintEmployee(ref Employee employee)
+        public static void PrintEmployee(Employee employee)
         {
             TextColorChange();
             Console.Write($"{employee.id,4}");
