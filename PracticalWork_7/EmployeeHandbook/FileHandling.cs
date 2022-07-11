@@ -32,5 +32,28 @@ namespace EmployeeHandbook
                 );
             sw.Close();
         }
+
+        /// <summary>
+        /// Чтение из файла
+        /// </summary>
+        /// <param name="file">Имя файла</param>
+        /// <returns>Массив строк</returns>
+        public static string[] FileReading(ref string file)
+        {
+            StreamReader sr = new StreamReader(file);
+
+            int count = File.ReadAllText(file).Length;
+
+            string[] line = new string[count];
+
+            for(int i = 0; i < count; i++)
+            {
+                line[i] = sr.ReadLine();
+            }
+
+            sr.Close();
+
+            return line;
+        }
     }
 }
