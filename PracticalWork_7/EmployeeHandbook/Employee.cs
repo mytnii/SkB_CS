@@ -22,7 +22,30 @@ namespace EmployeeHandbook
         public string? brithPlace;      // Место рождения сотрудника
 
         /// <summary>
-        /// Ввод данных о сотруднике
+        /// Конструктор по умолчанию
+        /// </summary>
+        public Employee()
+        { }
+
+        /// <summary>
+        /// Конструктор с одним параметром
+        /// </summary>
+        /// <param name="str">строка</param>
+        public Employee(ref string str)
+        {
+            string[] employee = str.Split('#').ToArray();
+            id = int.Parse(employee[0]);
+            date = DateTime.Parse(employee[1]);
+            lastName = employee[2];
+            firstName = employee[3];
+            patronumic = employee[4];
+            age = int.Parse(employee[5]);
+            growth = int.Parse(employee[6]);
+            brithDate = DateTime.Parse(employee[7]);
+            brithPlace = employee[8];
+        }
+        /// <summary>
+        /// Ввод данных о сотруднике с клавиатуры
         /// </summary>
         public void KeyboardInput()
         {
@@ -125,5 +148,13 @@ namespace EmployeeHandbook
                 this.age--;
             }
         }
+
+
+       //public static List<Employee> ListOfEmployees(ref string file)
+       // {
+       //     List<Employee> employees = new List<Employee>();
+       //     string[] str = FileHandling.FileReading(ref file);
+       //     string[] employee;
+       // }
     }
 }
