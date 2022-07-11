@@ -150,11 +150,21 @@ namespace EmployeeHandbook
         }
 
 
-       //public static List<Employee> ListOfEmployees(ref string file)
-       // {
-       //     List<Employee> employees = new List<Employee>();
-       //     string[] str = FileHandling.FileReading(ref file);
-       //     string[] employee;
-       // }
+        /// <summary>
+        /// Список сотрудников из файла
+        /// </summary>
+        /// <param name="file">Имя файла</param>
+        /// <returns>Список сотрудников</returns>
+        public static List<Employee> ListOfEmployees(ref string file)
+        {
+            List<Employee> employees = new List<Employee>();
+            string[] str = FileHandling.FileReading(ref file);
+           
+            for(int i = 0; i < str.Length; i++)
+            {
+                employees.Add(new Employee(ref str[i]));
+            }
+            return employees;
+        }
     }
 }
