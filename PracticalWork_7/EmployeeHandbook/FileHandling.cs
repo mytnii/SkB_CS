@@ -42,7 +42,7 @@ namespace EmployeeHandbook
         {
             StreamReader sr = new StreamReader(file);
 
-            int count = File.ReadAllText(file).Length;
+            int count = File.ReadAllLines(file).Length;
 
             string[] line = new string[count];
 

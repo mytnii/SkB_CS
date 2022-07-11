@@ -40,13 +40,14 @@ namespace EmployeeHandbook
     {
         static void Main(string[] args)
         {
-            
+           
+            Menu();
         }
 
         static void Menu()
         {
-            string file = "employess.txt";
-            
+            string file = "employee.txt";
+
             Console.WriteLine("Для запуска меню нажмите Enter");
             ConsoleKeyInfo key = Console.ReadKey();
             if (key.Key == ConsoleKey.Enter)
@@ -71,18 +72,13 @@ namespace EmployeeHandbook
 
                             continue;
                         case 1:
-                            if (true)
+
+                            List<Employee> employees = Employee.ListOfEmployees(file);
+                            ConsoleOperation.TablePrint();
+                            for (int i = 0; i < employees.Count; i++)
                             {
-                                List<Employee> employees = Employee.ListOfEmployees(ref file);
-                                ConsoleOperation.TablePrint();
-
-                                for (int i = 0; i < employees.Count; i++)
-                                {
-                                    ConsoleOperation.PrintEmployee(employees[i]);
-                                }
-
+                                ConsoleOperation.PrintEmployee(employees[i]);
                             }
-
                             break;
                         case 2:
                             Employee employee = new Employee();
@@ -97,7 +93,7 @@ namespace EmployeeHandbook
 
                     Console.WriteLine();
 
-                } while (key.Key == ConsoleKey.Y); 
+                } while (key.Key == ConsoleKey.Y);
             }
 
             Console.WriteLine("До свидания");

@@ -13,13 +13,13 @@ namespace EmployeeHandbook
     {
         public int id;                  // Номер записи
         public DateTime date;           // Дата создания записи
-        public string? lastName;        // Фамилия сотрудника
-        public string? firstName;       // Имя сотрудника
-        public string? patronumic;      // Отчество сотрудника
+        public string lastName;        // Фамилия сотрудника
+        public string firstName;       // Имя сотрудника
+        public string patronumic;      // Отчество сотрудника
         public int age;                 // Возраст сотрудника
         public int growth;              // Рост сотрудника
         public DateTime brithDate;      // Дата рождения сотрудника
-        public string? brithPlace;      // Место рождения сотрудника
+        public string brithPlace;      // Место рождения сотрудника
 
         /// <summary>
         /// Конструктор по умолчанию
@@ -31,18 +31,18 @@ namespace EmployeeHandbook
         /// Конструктор с одним параметром
         /// </summary>
         /// <param name="str">строка</param>
-        public Employee(ref string str)
+        public Employee(string str)
         {
             string[] employee = str.Split('#').ToArray();
-            id = int.Parse(employee[0]);
-            date = DateTime.Parse(employee[1]);
-            lastName = employee[2];
-            firstName = employee[3];
-            patronumic = employee[4];
-            age = int.Parse(employee[5]);
-            growth = int.Parse(employee[6]);
-            brithDate = DateTime.Parse(employee[7]);
-            brithPlace = employee[8];
+            this.id = int.Parse(employee[0]);
+            this.date = DateTime.Parse(employee[1]);
+            this.lastName = employee[2];
+            this.firstName = employee[3];
+            this.patronumic = employee[4];
+            this.age = int.Parse(employee[5]);
+            this.growth = int.Parse(employee[6]);
+            this.brithDate = DateTime.Parse(employee[7]);
+            this.brithPlace = employee[8];
         }
         /// <summary>
         /// Ввод данных о сотруднике с клавиатуры
@@ -155,14 +155,14 @@ namespace EmployeeHandbook
         /// </summary>
         /// <param name="file">Имя файла</param>
         /// <returns>Список сотрудников</returns>
-        public static List<Employee> ListOfEmployees(ref string file)
+        public static List<Employee> ListOfEmployees( string file)
         {
-            List<Employee> employees = new List<Employee>();
             string[] str = FileHandling.FileReading(ref file);
-           
-            for(int i = 0; i < str.Length; i++)
+
+            List<Employee> employees = new List<Employee>();
+            for (int i = 0; i < str.Length; i++)
             {
-                employees.Add(new Employee(ref str[i]));
+                employees.Add(new Employee(str[i]));
             }
             return employees;
         }

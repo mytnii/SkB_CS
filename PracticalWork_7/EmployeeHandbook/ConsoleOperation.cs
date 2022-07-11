@@ -74,7 +74,7 @@ namespace EmployeeHandbook
                 $"{Employees.Дата_рождения,20}|" +
                 $"{Employees.Место_рождения,15}|"
                 );
-            //EndOfRecord();
+            EndOfRecord();
             Console.ResetColor();
         }
 
