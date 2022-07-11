@@ -44,13 +44,13 @@ namespace EmployeeHandbook
 
             employee.KeyboardInput();
 
-            string file = "employess.txt";
+            //string file = "employess.txt";
 
-            FileHandling.Filling(ref employee, ref file);
+            //FileHandling.Filling(ref employee, ref file);
 
-            //ConsoleOperation.TablePrint();
-            //ConsoleOperation.EndOfRecord();
-            //ConsoleOperation.PrintEmployee(ref employee);
+            ConsoleOperation.TablePrint();
+            ConsoleOperation.EndOfRecord();
+            ConsoleOperation.PrintEmployee(ref employee);
 
 
         }

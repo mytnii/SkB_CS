@@ -30,6 +30,7 @@ namespace EmployeeHandbook
         /// <param name="employee">Сотрудник</param>
         public static void PrintEmployee(ref Employee employee)
         {
+            TextColorChange();
             Console.Write($"{employee.id,4}");
             TextColorChange();
             Console.Write($"{employee.date,20}");
@@ -59,10 +60,11 @@ namespace EmployeeHandbook
         /// </summary>
         public static void TablePrint()
         {
+            EndOfRecord();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine
                 (
-                $"{Employees.ID,4}|" +
+                $"|{Employees.ID,4}|" +
                 $"{Employees.Создание_записи,20}|" +
                 $"{Employees.Фамилия,15}|" +
                 $"{Employees.Имя,10}|" +
@@ -72,6 +74,7 @@ namespace EmployeeHandbook
                 $"{Employees.Дата_рождения,20}|" +
                 $"{Employees.Место_рождения,15}|"
                 );
+            //EndOfRecord();
             Console.ResetColor();
         }
 
@@ -93,7 +96,7 @@ namespace EmployeeHandbook
             Console.ForegroundColor= ConsoleColor.Blue;
             Console.WriteLine
                (
-               "----|--------------------|---------------|----------|---------------|--------|----|--------------------|---------------|"
+               "|----|--------------------|---------------|----------|---------------|--------|----|--------------------|---------------|"
                );
             Console.ResetColor();
         }
