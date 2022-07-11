@@ -40,19 +40,67 @@ namespace EmployeeHandbook
     {
         static void Main(string[] args)
         {
-            Employee employee = new Employee();
+            
+        }
 
-            employee.KeyboardInput();
+        static void Menu()
+        {
+            string file = "employess.txt";
+            
+            Console.WriteLine("Для запуска меню нажмите Enter");
+            ConsoleKeyInfo key = Console.ReadKey();
+            if (key.Key == ConsoleKey.Enter)
+            {
+                do
+                {
 
-            //string file = "employess.txt";
+                    Console.ReadKey();
+                    Console.Clear();
 
-            //FileHandling.Filling(ref employee, ref file);
+                    Console.WriteLine("Выберите действие");
+                    Console.WriteLine("1 - вывести данные на экран");
+                    Console.WriteLine("2 - заполнить данные и добавить новую запись");
 
-            ConsoleOperation.TablePrint();
-            ConsoleOperation.EndOfRecord();
-            ConsoleOperation.PrintEmployee(ref employee);
+                    byte size;
+                    byte.TryParse(Console.ReadLine(), out size);
 
+                    switch (size)
+                    {
+                        case 0:
+                            Console.WriteLine("Не верный выбор действия");
 
+                            continue;
+                        case 1:
+                            if (true)
+                            {
+                                List<Employee> employees = Employee.ListOfEmployees(ref file);
+                                ConsoleOperation.TablePrint();
+
+                                for (int i = 0; i < employees.Count; i++)
+                                {
+                                    ConsoleOperation.PrintEmployee(employees[i]);
+                                }
+
+                            }
+
+                            break;
+                        case 2:
+                            Employee employee = new Employee();
+                            employee.KeyboardInput();
+                            FileHandling.Filling(ref employee, ref file);
+                            break;
+                    }
+
+                    Console.WriteLine("Хотите продолжить Y/N");
+
+                    key = Console.ReadKey();
+
+                    Console.WriteLine();
+
+                } while (key.Key == ConsoleKey.Y); 
+            }
+
+            Console.WriteLine("До свидания");
         }
     }
 }
