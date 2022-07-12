@@ -123,5 +123,27 @@ namespace EmployeeHandbook
                );
             Console.ResetColor();
         }
+
+        /// <summary>
+        /// Ввод фамили сотрудника
+        /// </summary>
+        /// <returns></returns>
+        public static string EmployeeLastName()
+        {
+            string lastName;
+
+            do
+            {
+                Console.WriteLine("Введите фамилию");
+                lastName = Console.ReadLine();
+
+                if (lastName.Length == 0)
+                {
+                    Console.WriteLine("Фамилия не введена\n");
+                }
+            } while (lastName.Length == 0);
+
+            return lastName;
+        }
     }
 }
