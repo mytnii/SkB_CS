@@ -74,16 +74,7 @@ namespace EmployeeHandbook
             this.patronumic = ConsoleOperation.EmployeePatronumic();
 
             // Ввод роста сотрудника
-            do
-            {
-                Console.WriteLine("Введите рост");
-                int.TryParse(Console.ReadLine(), out this.growth);
-
-                if(growth == 0)
-                {
-                    Console.WriteLine("Рост не введен\n");
-                }
-            } while (growth == 0);
+            this.growth= ConsoleOperation.EmployeeGrowth();
 
             // Ввод даты рождения сотрудника
             do
