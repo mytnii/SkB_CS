@@ -65,16 +65,7 @@ namespace EmployeeHandbook
             this.date = DateTime.Now;
 
             // Ввод Фамилии сотрудника
-            do
-            {
-                Console.WriteLine("Введите фамилию");
-                this.lastName = Console.ReadLine();
-
-                if(this.lastName.Length == 0)
-                {
-                    Console.WriteLine("Фамилия не введена\n");
-                }
-            }while(this.lastName.Length == 0);
+            this.lastName = ConsoleOperation.EmployeeLastName();
 
             // Ввод Имени сотрудника
             do
@@ -148,6 +139,8 @@ namespace EmployeeHandbook
                 this.age--;
             }
         }
+
+      
 
 
         /// <summary>
