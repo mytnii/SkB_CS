@@ -68,16 +68,7 @@ namespace EmployeeHandbook
             this.lastName = ConsoleOperation.EmployeeLastName();
 
             // Ввод Имени сотрудника
-            do
-            {
-                Console.WriteLine("Введите имя");
-                this.firstName = Console.ReadLine();
-
-                if(this.firstName.Length == 0)
-                {
-                    Console.WriteLine("Имя не введено\n");
-                }
-            }while(this.firstName.Length == 0);
+            this.firstName = ConsoleOperation.EmployeeFirstName();
 
             // Ввод отчества сотрудника
             do
