@@ -59,6 +59,7 @@ namespace EmployeeHandbook
                     Console.WriteLine("Выберите действие");
                     Console.WriteLine("1 - вывести данные на экран");
                     Console.WriteLine("2 - заполнить данные и добавить новую запись");
+                    Console.WriteLine("3 - Просмотр записи по введенному номеру");
 
                     byte size;
                     byte.TryParse(Console.ReadLine(), out size);
@@ -82,6 +83,11 @@ namespace EmployeeHandbook
                             Employee employee = new Employee();
                             employee.KeyboardInput();
                             FileHandling.Filling(ref employee, ref file);
+                            break;
+                        case 3:
+                            Console.WriteLine("Введите номер записи");
+                            string str = Console.ReadLine();
+                            ConsoleOperation.RecordView(ref str, ref file);
                             break;
                     }
 

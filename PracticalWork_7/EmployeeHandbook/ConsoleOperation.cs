@@ -93,7 +93,7 @@ namespace EmployeeHandbook
             if(employees.Count >= ID && ID != 0)
             {
                 ConsoleOperation.TablePrint();
-                ConsoleOperation.PrintEmployee(employees[ID]);
+                ConsoleOperation.PrintEmployee(employees[ID - 1]);
             }
             else
             {
