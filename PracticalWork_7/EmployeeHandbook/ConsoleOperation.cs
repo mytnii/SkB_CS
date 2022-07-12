@@ -189,5 +189,27 @@ namespace EmployeeHandbook
 
             return patronumic;
         }
+
+        /// <summary>
+        /// Ввод роста сотрудника
+        /// </summary>
+        /// <returns>Рост сотрудника</returns>
+        public static int EmployeeGrowth()
+        {
+            int growth;
+
+            do
+            {
+                Console.WriteLine("Введите рост");
+                int.TryParse(Console.ReadLine(), out growth);
+
+                if (growth == 0)
+                {
+                    Console.WriteLine("Рост не введен\n");
+                }
+            } while (growth == 0);
+
+            return growth;
+        }
     }
 }
