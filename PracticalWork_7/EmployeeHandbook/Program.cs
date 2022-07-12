@@ -82,7 +82,7 @@ namespace EmployeeHandbook
                         case 2:
                             Employee employee = new Employee();
                             employee.KeyboardInput();
-                            FileHandling.Filling(ref employee, ref file);
+                            FileHandling.Filling(employee, ref file);
                             break;
                         case 3:
                             Console.WriteLine("Введите номер записи");

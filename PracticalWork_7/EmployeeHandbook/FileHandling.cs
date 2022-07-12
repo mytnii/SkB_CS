@@ -17,7 +17,7 @@ namespace EmployeeHandbook
         /// </summary>
         /// <param name="employee">Сотрудник</param>
         /// <param name="file">Имя файла</param>
-        public static void Filling(ref Employee employee, ref string file)
+        public static void Filling(Employee employee, ref string file)
         {
             FileStream fs = new FileStream(file, FileMode.Append);
             StreamWriter sw = new StreamWriter(fs);
@@ -54,6 +54,35 @@ namespace EmployeeHandbook
             sr.Close();
 
             return line;
+        }
+
+        /// <summary>
+        /// Удаление записи
+        /// </summary>
+        /// <param name="file">Имя файла</param>
+        /// <param name="id">Номер записи</param>
+        public static void RecordDeletion(ref string file, ref string id)
+        {
+            int ID;
+            List<Employee> employees = Employee.ListOfEmployees(file);
+            int.TryParse(id, out ID);
+
+            if(employees.Count >= ID && ID != 0)
+            {
+                for(int i = ID; i < employees.Count; i++)
+                {
+                    employees[i].id = i;
+                }
+
+                employees.RemoveAt(ID - 1);
+
+                FileInfo fileInfo = new FileInfo(file);
+                fileInfo.Delete();
+                for(int i = 0; i < employees.Count; ++i)
+                {
+                    Filling(employees[i], ref file);
+                }
+            }
         }
     }
 }
