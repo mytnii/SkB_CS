@@ -71,16 +71,7 @@ namespace EmployeeHandbook
             this.firstName = ConsoleOperation.EmployeeFirstName();
 
             // Ввод отчества сотрудника
-            do
-            {
-                Console.WriteLine("Введите отчество");
-                this.patronumic = Console.ReadLine();
-
-                if(this.patronumic.Length == 0)
-                {
-                    Console.WriteLine("Отчество не введено\n");
-                }
-            }while(this.patronumic.Length == 0);
+            this.patronumic = ConsoleOperation.EmployeePatronumic();
 
             // Ввод роста сотрудника
             do
