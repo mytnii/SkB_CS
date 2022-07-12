@@ -54,8 +54,6 @@ namespace EmployeeHandbook
             {
                 do
                 {
-
-                    Console.ReadKey();
                     Console.Clear();
 
                     Console.WriteLine("Выберите действие");
