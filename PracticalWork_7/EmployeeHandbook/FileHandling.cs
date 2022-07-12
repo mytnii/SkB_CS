@@ -154,6 +154,18 @@ namespace EmployeeHandbook
                         break;
                 }
 
+                FileInfo fileInfo = new FileInfo(file);
+                fileInfo.Delete();
+
+                for(int i = 0; i < employees.Count; ++i)
+                {
+                    Filling(employees[i], ref file);
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Записи с таким номером нет");
             }
         }
     }
