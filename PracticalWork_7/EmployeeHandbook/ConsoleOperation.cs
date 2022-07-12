@@ -211,5 +211,45 @@ namespace EmployeeHandbook
 
             return growth;
         }
+
+        /// <summary>
+        /// Ввод даты рождения сотрудника
+        /// </summary>
+        /// <returns>Дата рождения</returns>
+        public static DateTime EmployeeBrithDate()
+        {
+            DateTime brithDate;
+
+            do
+            {
+                Console.WriteLine("Введите дату рождения");
+                DateTime.TryParse(Console.ReadLine(), out brithDate);
+
+                if (brithDate.Year == 0)
+                {
+                    Console.WriteLine("Дата рождения не введена");
+                }
+            } while (brithDate.Year == 0);
+
+            return brithDate;
+
+        }
+
+        public static string EmployeeBrithPlace()
+        {
+            string brithPlace;
+            do
+            {
+                Console.WriteLine("Введите место рождения");
+                brithPlace = Console.ReadLine();
+
+                if (brithPlace.Length == 0)
+                {
+                    Console.WriteLine("Место рождения не введено");
+                }
+            } while (brithPlace.Length == 0);
+
+            return brithPlace;
+        }
     }
 }
