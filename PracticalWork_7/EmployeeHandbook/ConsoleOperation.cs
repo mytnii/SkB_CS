@@ -79,6 +79,29 @@ namespace EmployeeHandbook
         }
 
         /// <summary>
+        /// Просмотр записи
+        /// </summary>
+        /// <param name="id">Номер записи</param>
+        /// <param name="file">Имя файла</param>
+        public static void RecordView(ref string id, ref string file)
+        {
+
+            int ID;
+            List<Employee> employees = Employee.ListOfEmployees(file);
+            int.TryParse(id, out ID);
+
+            if(employees.Count >= ID && ID != 0)
+            {
+                ConsoleOperation.TablePrint();
+                ConsoleOperation.PrintEmployee(employees[ID]);
+            }
+            else
+            {
+                Console.WriteLine("Записи с таким номером нету");
+            }
+        }
+
+        /// <summary>
         /// Изменение цвета текста в консоли
         /// </summary>
         static void TextColorChange()
