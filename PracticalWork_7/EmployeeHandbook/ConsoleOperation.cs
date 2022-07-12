@@ -127,7 +127,7 @@ namespace EmployeeHandbook
         /// <summary>
         /// Ввод фамили сотрудника
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Фамилия сотрудника</returns>
         public static string EmployeeLastName()
         {
             string lastName;
@@ -149,7 +149,7 @@ namespace EmployeeHandbook
         /// <summary>
         /// Ввод имени сотрудника
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Имя сотрудника</returns>
         public static string EmployeeFirstName()
         {
             string firstName;
@@ -166,6 +166,28 @@ namespace EmployeeHandbook
             } while (firstName.Length == 0);
 
             return firstName;
+        }
+
+        /// <summary>
+        /// Ввод отчества сотрудника
+        /// </summary>
+        /// <returns>Отчество сотрудника</returns>
+        public static string EmployeePatronumic()
+        {
+            string patronumic;
+
+            do
+            {
+                Console.WriteLine("Введите отчество");
+                patronumic = Console.ReadLine();
+
+                if (patronumic.Length == 0)
+                {
+                    Console.WriteLine("Отчество не введено\n");
+                }
+            } while (patronumic.Length == 0);
+
+            return patronumic;
         }
     }
 }
