@@ -79,31 +79,16 @@ namespace EmployeeHandbook
             // Ввод даты рождения сотрудника
             do
             {
-                Console.WriteLine("Введите дату рождения");
-                DateTime.TryParse(Console.ReadLine(), out brithDate);
-
-                if(brithDate.Year == 0)
-                {
-                    Console.WriteLine("Дата рождения не введена");
-                }
-                if(brithDate.Year > date.Year)
+                this.brithDate = ConsoleOperation.EmployeeBrithDate();
+                if (brithDate.Year > date.Year)
                 {
                     Console.WriteLine("Не коректный ввод даты рождения ");
-                    continue;
                 }
-            }while(brithDate.Year == 0);
+
+            } while (brithDate.Year > date.Year);
 
             // Ввод места рождения сотрудника
-            do
-            {
-                Console.WriteLine("Введите место рождения");
-                this.brithPlace = Console.ReadLine();
-
-                if(brithPlace.Length == 0)
-                {
-                    Console.WriteLine("Место рождения не введено");
-                }
-            } while (this.brithPlace.Length == 0);
+            this.brithPlace= ConsoleOperation.EmployeeBrithPlace();
 
             // Возраст сотрудника
             this.age = this.date.Year - this.brithDate.Year;
