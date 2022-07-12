@@ -83,6 +83,78 @@ namespace EmployeeHandbook
                     Filling(employees[i], ref file);
                 }
             }
+            else
+            {
+                Console.WriteLine("Записи с таким номером нет");
+            }
+        }
+
+        /// <summary>
+        /// Редактирование записи
+        /// </summary>
+        /// <param name="file">Имя файла</param>
+        /// <param name="id">Номер записи</param>
+        public static void RecordEditing(ref string file, ref string id)
+        {
+            int ID;
+            List<Employee> employees = Employee.ListOfEmployees(file);
+            int.TryParse(id, out ID);
+
+            if(employees.Count >= ID && ID != 0)
+            {
+                Console.WriteLine("Выберете что нужно отредактировать");
+                Console.WriteLine("1 - Фамилия");
+                Console.WriteLine("2 - Имя");
+                Console.WriteLine("3 - Отчество");
+                Console.WriteLine("4 - Рост");
+                Console.WriteLine("5 - Дата рождения");
+                Console.WriteLine("6 - Место рождения");
+
+                byte value;
+                byte.TryParse(Console.ReadLine(), out value);
+
+                int size = ID - 1;
+
+                switch(ID)
+                {
+                    case 0:
+                        Console.WriteLine("Некоректный выбор");
+                        break;
+                    case 1:
+                        employees[size].lastName = ConsoleOperation.EmployeeLastName();
+                        break;
+                    case 2:
+                        employees[size].firstName = ConsoleOperation.EmployeeFirstName();
+                        break;
+                    case 3:
+                        employees[size].patronumic = ConsoleOperation.EmployeePatronumic();
+                        break;
+                    case 4:
+                        employees[size].growth = ConsoleOperation.EmployeeGrowth();
+                        break;
+                    case 5:
+                        do
+                        {
+                            employees[size].brithDate = ConsoleOperation.EmployeeBrithDate();
+                            if (employees[size].brithDate.Year > employees[size].date.Year)
+                            {
+                                Console.WriteLine("Не коректный ввод даты рождения ");
+                            }
+
+                        } while(employees[size].date.Year < employees[size].brithDate.Year);
+
+                        employees[size].age = employees[size].date.Year - employees[size].brithDate.Year;
+                        if (employees[size].date.Month > employees[size].brithDate.Month)
+                        {
+                            employees[size].age--;
+                        }
+                        break;
+                    case 6:
+                        employees[size].brithPlace = ConsoleOperation.EmployeeBrithPlace();
+                        break;
+                }
+
+            }
         }
     }
 }
