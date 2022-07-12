@@ -54,15 +54,16 @@ namespace EmployeeHandbook
             {
                 do
                 {
-                    Console.Clear();
 
                     Console.WriteLine("Выберите действие");
                     Console.WriteLine("1 - вывести данные на экран");
                     Console.WriteLine("2 - заполнить данные и добавить новую запись");
                     Console.WriteLine("3 - Просмотр записи по введенному номеру");
+                    Console.WriteLine("4 - Удаление записи по введенному номеру");
 
                     byte size;
                     byte.TryParse(Console.ReadLine(), out size);
+                    string str;
 
                     switch (size)
                     {
@@ -86,8 +87,13 @@ namespace EmployeeHandbook
                             break;
                         case 3:
                             Console.WriteLine("Введите номер записи");
-                            string str = Console.ReadLine();
+                            str = Console.ReadLine();
                             ConsoleOperation.RecordView(ref str, ref file);
+                            break;
+                        case 4:
+                            Console.WriteLine("Введите номер записи");
+                            str = Console.ReadLine();
+                            FileHandling.RecordDeletion(ref file, ref str);
                             break;
                     }
 
