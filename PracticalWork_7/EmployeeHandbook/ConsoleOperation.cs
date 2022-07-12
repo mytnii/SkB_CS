@@ -145,5 +145,27 @@ namespace EmployeeHandbook
 
             return lastName;
         }
+
+        /// <summary>
+        /// Ввод имени сотрудника
+        /// </summary>
+        /// <returns></returns>
+        public static string EmployeeFirstName()
+        {
+            string firstName;
+
+            do
+            {
+                Console.WriteLine("Введите имя");
+                firstName = Console.ReadLine();
+
+                if (firstName.Length == 0)
+                {
+                    Console.WriteLine("Имя не введено\n");
+                }
+            } while (firstName.Length == 0);
+
+            return firstName;
+        }
     }
 }
