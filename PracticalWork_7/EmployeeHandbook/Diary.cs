@@ -275,6 +275,25 @@ namespace EmployeeHandbook
             }
         }
 
+        /// <summary>
+        /// Сортировка по росту
+        /// </summary>
+        public void SortByHeight()
+        {
+            Employee employee = new Employee();
 
+            for (int i = 0; i < this.employees.Count; i++)
+            {
+                for (int j = i; j < this.employees.Count; j++)
+                {
+                    if (this.employees[i].growth > this.employees[j].growth)
+                    {
+                        employee = this.employees[i];
+                        this.employees[i] = this.employees[j];
+                        this.employees[j] = employee;
+                    }
+                }
+            }
+        }
     }
 }
