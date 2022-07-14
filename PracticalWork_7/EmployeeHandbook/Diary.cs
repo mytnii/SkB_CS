@@ -236,7 +236,7 @@ namespace EmployeeHandbook
         /// <summary>
         /// Сортировка по Имени
         /// </summary>
-        public void SortingByFirsName()
+        public void SortingByFirstName()
         {
             Employee employee = new Employee();
 
@@ -338,6 +338,104 @@ namespace EmployeeHandbook
             }
         }
 
+        /// <summary>
+        /// Меню сортировки
+        /// </summary>
+        public void SortMenu()
+        {
+            Console.WriteLine("Выберете поле по которому нужно отсортировать");
+            Console.WriteLine("1 - По номеру записи");
+            Console.WriteLine("2 - По дата добавления");
+            Console.WriteLine("3 - По Фамилии");
+            Console.WriteLine("4 - По Имени");
+            Console.WriteLine("5 - По отчеству");
+            Console.WriteLine("6 - По росту");
+            Console.WriteLine("7 - По дате рождения");
+            Console.WriteLine("8 - По месту рождения");
 
+            string str = Console.ReadLine();
+
+            ConsoleKeyInfo key;
+
+            switch (str)
+            {
+                case "1":
+                    Console.WriteLine("По возрастанию Y/N");
+                    key = Console.ReadKey();
+                    SortById();
+                    if(key.Key == ConsoleKey.N)
+                    {
+                        this.employees.Reverse();
+                    }
+                    break;
+                case "2":
+                    Console.WriteLine("По возрастанию Y/N");
+                    key = Console.ReadKey();
+                    DateSorting();
+                    if (key.Key == ConsoleKey.N)
+                    {
+                        this.employees.Reverse();
+                    }
+                    break;
+                case "3":
+                    Console.WriteLine("По возрастанию Y/N");
+                    key = Console.ReadKey();
+                    SortingByLastName();
+                    if (key.Key == ConsoleKey.N)
+                    {
+                        this.employees.Reverse();
+                    }
+                    break;
+                case "4":
+                    Console.WriteLine("По возрастанию Y/N");
+                    key = Console.ReadKey();
+                    SortingByFirstName();
+                    if (key.Key == ConsoleKey.N)
+                    {
+                        this.employees.Reverse();
+                    }
+                    break;
+                case "5":
+                    Console.WriteLine("По возрастанию Y/N");
+                    key = Console.ReadKey();
+                    SortingByPatronumic();
+                    if (key.Key == ConsoleKey.N)
+                    {
+                        this.employees.Reverse();
+                    }
+                    break;
+                case "6":
+                    Console.WriteLine("По возрастанию Y/N");
+                    key = Console.ReadKey();
+                    SortByHeight();
+                    if (key.Key == ConsoleKey.N)
+                    {
+                        this.employees.Reverse();
+                    }
+                    break;
+                case "7":
+                    Console.WriteLine("По возрастанию Y/N");
+                    key = Console.ReadKey();
+                    BrithDateSorting();
+                    if (key.Key == ConsoleKey.N)
+                    {
+                        this.employees.Reverse();
+                    }
+                    break;
+                case "8":
+                    Console.WriteLine("По возрастанию Y/N");
+                    key = Console.ReadKey();
+                    SortingByBrithPlace();
+                    if (key.Key == ConsoleKey.N)
+                    {
+                        this.employees.Reverse();
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Неправнльный выбор сортировки");
+                    break;
+            }
+
+        }
     }
 }
