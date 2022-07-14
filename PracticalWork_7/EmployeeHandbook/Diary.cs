@@ -23,16 +23,50 @@ namespace EmployeeHandbook
         }
 
         /// <summary>
-        /// Конструктор с одним параметром
+        /// Список сотрудников из файла
         /// </summary>
         /// <param name="file">Имя файла</param>
-        public  Diary (string file)
+        public void  DiaryAddFile (string file)
         {
             string[] str = FileHandling.FileReading(ref file);
             for (int i = 0; i < str.Length; i++)
             {
-                employees.Add(new Employee(str[i]));
+                this.employees.Add(new Employee(str[i]));
             }
         }
+
+        /// <summary>
+        /// Добавление сотрудника
+        /// </summary>
+        public void EmployeesAdd()
+        {
+            this.employees.Add(new Employee());
+            this.employees[employees.Count - 1].KeyboardInput();
+
+        }
+
+        /// <summary>
+        /// Просмотр записи
+        /// </summary>
+        /// <param name="id">Номер записи</param>
+        /// <param name="file">Имя файла</param>
+        public void RecordView()
+        {
+            int ID;
+            int.TryParse(ConsoleOperation.RecordNumber(), out ID);
+            Console.WriteLine(ID);
+            Console.WriteLine(this.employees.Count);
+
+            if (this.employees.Count >= ID && ID != 0)
+            {
+                ConsoleOperation.TablePrint();
+                ConsoleOperation.PrintEmployee(this.employees[ID - 1]);
+            }
+            else
+            {
+                Console.WriteLine("Записи с таким номером нету");
+            }
+        }
+
     }
 }

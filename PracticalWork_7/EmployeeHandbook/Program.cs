@@ -65,12 +65,14 @@ namespace EmployeeHandbook
                     byte size;
                     byte.TryParse(Console.ReadLine(), out size);
                     string str;
+                    Diary employees = new Diary();
 
-                    if(!File.Exists(file))
+                    if(File.Exists(file))
                     {
-                        File.Create(file);
+                        employees.DiaryAddFile(file);
                     }
-                    Diary employees = new Diary(file);
+
+                  
                     switch (size)
                     {
                         case 0:
@@ -79,28 +81,34 @@ namespace EmployeeHandbook
                             continue;
                         case 1:
 
+                            if (employees.employees.Count != 0)
+                            {
                                 ConsoleOperation.TablePrint();
                                 for (int i = 0; i < employees.employees.Count; i++)
                                 {
                                     ConsoleOperation.PrintEmployee(employees.employees[i]);
-                                } 
+                                }  
+                            }
+                            else
+                            {
+                                ConsoleOperation.TablePrint();
+                            }
                             break;
                         case 2:
-                            Employee employee = new Employee();
-                            employee.KeyboardInput();
-                            FileHandling.Filling(employee, ref file);
+                            employees.EmployeesAdd();
+                            FileHandling.Filling(employees.employees[employees.employees.Count - 1], ref file);
                             break;
                         case 3:
-                                
-                                ConsoleOperation.RecordView(ref file); 
+
+                            employees.RecordView();
                             break;
                         case 4:
                                 
-                                FileHandling.RecordDeletion(ref file); 
+                                FileHandling.RecordDeletion(employees,ref file); 
                             break;
                         case 5:
                                 
-                                FileHandling.RecordEditing(ref file); 
+                                FileHandling.RecordEditing(employees, ref file); 
                             break;
                     }
 

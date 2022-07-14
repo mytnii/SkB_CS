@@ -61,10 +61,9 @@ namespace EmployeeHandbook
         /// </summary>
         /// <param name="file">Имя файла</param>
         /// <param name="id">Номер записи</param>
-        public static void RecordDeletion(ref string file)
+        public static void RecordDeletion(Diary employees, ref string file)
         {
             int ID;
-            Diary employees = new Diary(file);
             int.TryParse(ConsoleOperation.RecordNumber(), out ID);
 
             if(employees.employees.Count >= ID && ID != 0)
@@ -94,10 +93,9 @@ namespace EmployeeHandbook
         /// </summary>
         /// <param name="file">Имя файла</param>
         /// <param name="id">Номер записи</param>
-        public static void RecordEditing(ref string file)
+        public static void RecordEditing(Diary employees, ref string file)
         {
             int ID;
-            Diary employees = new Diary(file);
             int.TryParse(ConsoleOperation.RecordNumber(), out ID);
 
             if(employees.employees.Count >= ID && ID != 0)

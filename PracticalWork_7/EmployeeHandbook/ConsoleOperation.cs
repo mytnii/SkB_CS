@@ -78,28 +78,6 @@ namespace EmployeeHandbook
             Console.ResetColor();
         }
 
-        /// <summary>
-        /// Просмотр записи
-        /// </summary>
-        /// <param name="id">Номер записи</param>
-        /// <param name="file">Имя файла</param>
-        public static void RecordView(ref string file)
-        {
-
-            int ID;
-            Diary employees = new Diary(file);
-            int.TryParse(ConsoleOperation.RecordNumber(), out ID);
-
-            if(employees.employees.Count >= ID && ID != 0)
-            {
-                ConsoleOperation.TablePrint();
-                ConsoleOperation.PrintEmployee(employees.employees[ID - 1]);
-            }
-            else
-            {
-                Console.WriteLine("Записи с таким номером нету");
-            }
-        }
 
         /// <summary>
         /// Изменение цвета текста в консоли
