@@ -191,6 +191,27 @@ namespace EmployeeHandbook
             }
         }
 
+        /// <summary>
+        /// Сортировка по дате добавления
+        /// </summary>
+        public void DateSorting()
+        {
+            Employee employee = new Employee();
+
+            for(int i = 0; i < this.employees.Count; i++)
+            {
+                for(int j = i; j < this.employees.Count; j++)
+                {
+                    if(this.employees[i].date > this.employees[j].date)
+                    {
+                        employee = this.employees[i];
+                        this.employees[i] = this.employees[j];
+                        this.employees[j] = employee;
+                    }
+                }
+            }
+        }
+
 
     }
 }
