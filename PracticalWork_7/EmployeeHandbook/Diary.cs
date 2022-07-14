@@ -335,7 +335,6 @@ namespace EmployeeHandbook
                         this.employees[j] = employee;
                     }
                 }
-                ConsoleOperation.PrintEmployee(employees[i]);
             }
         }
 
@@ -437,6 +436,7 @@ namespace EmployeeHandbook
                     break;
             }
 
+                    Console.WriteLine();
         }
     }
 }
