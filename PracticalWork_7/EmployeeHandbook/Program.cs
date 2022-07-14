@@ -91,19 +91,16 @@ namespace EmployeeHandbook
                             FileHandling.Filling(employee, ref file);
                             break;
                         case 3:
-                                Console.WriteLine("Введите номер записи");
-                                str = Console.ReadLine();
-                                ConsoleOperation.RecordView(ref str, ref file); 
+                                
+                                ConsoleOperation.RecordView(ref file); 
                             break;
                         case 4:
-                                Console.WriteLine("Введите номер записи");
-                                str = Console.ReadLine();
-                                FileHandling.RecordDeletion(ref file, ref str); 
+                                
+                                FileHandling.RecordDeletion(ref file); 
                             break;
                         case 5:
-                                Console.WriteLine("Введите номер записи");
-                                str = Console.ReadLine();
-                                FileHandling.RecordEditing(ref file, ref str); 
+                                
+                                FileHandling.RecordEditing(ref file); 
                             break;
                     }
 
