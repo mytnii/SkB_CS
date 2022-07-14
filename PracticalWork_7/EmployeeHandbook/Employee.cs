@@ -106,16 +106,6 @@ namespace EmployeeHandbook
         /// </summary>
         /// <param name="file">Имя файла</param>
         /// <returns>Список сотрудников</returns>
-        public static List<Employee> ListOfEmployees( string file)
-        {
-            string[] str = FileHandling.FileReading(ref file);
-
-            List<Employee> employees = new List<Employee>();
-            for (int i = 0; i < str.Length; i++)
-            {
-                employees.Add(new Employee(str[i]));
-            }
-            return employees;
-        }
+      
     }
 }
