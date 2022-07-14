@@ -133,13 +133,7 @@ namespace EmployeeHandbook
                         break;
                 }
 
-                FileInfo fileInfo = new FileInfo(file);
-                fileInfo.Delete();
-
-                for (int i = 0; i < this.employees.Count; ++i)
-                {
-                    FileHandling.Filling(this.employees[i], ref file);
-                }
+                FileHandling.OverwriteFile(ref this.employees, ref file);
 
             }
             else
