@@ -255,5 +255,15 @@ namespace EmployeeHandbook
 
             return brithPlace;
         }
+
+        /// <summary>
+        /// Ввод номера записи
+        /// </summary>
+        /// <returns>Номер записи</returns>
+        public static string RecordNumber()
+        {
+            Console.WriteLine("Введите номер записи");
+            return Console.ReadLine();
+        }
     }
 }
