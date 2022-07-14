@@ -83,12 +83,12 @@ namespace EmployeeHandbook
         /// </summary>
         /// <param name="id">Номер записи</param>
         /// <param name="file">Имя файла</param>
-        public static void RecordView(ref string id, ref string file)
+        public static void RecordView(ref string file)
         {
 
             int ID;
             Diary employees = new Diary(file);
-            int.TryParse(id, out ID);
+            int.TryParse(ConsoleOperation.RecordNumber(), out ID);
 
             if(employees.employees.Count >= ID && ID != 0)
             {
