@@ -97,15 +97,5 @@ namespace EmployeeHandbook
                 this.age--;
             }
         }
-
-      
-
-
-        /// <summary>
-        /// Список сотрудников из файла
-        /// </summary>
-        /// <param name="file">Имя файла</param>
-        /// <returns>Список сотрудников</returns>
-      
     }
 }

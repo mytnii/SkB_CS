@@ -107,8 +107,7 @@ namespace EmployeeHandbook
                                 FileHandling.RecordDeletion(employees,ref file); 
                             break;
                         case 5:
-                                
-                                FileHandling.RecordEditing(employees, ref file); 
+                                employees.RecordEditing( ref file); 
                             break;
                     }
 
