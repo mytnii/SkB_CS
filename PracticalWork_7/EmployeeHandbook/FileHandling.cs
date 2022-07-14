@@ -61,13 +61,13 @@ namespace EmployeeHandbook
         /// </summary>
         /// <param name="employees">Список сотрудников</param>
         /// <param name="file">Имя файла</param>
-        public static void OverwriteFile(ref Diary employees, ref string file)
+        public static void OverwriteFile(ref List<Employee> employees, ref string file)
         {
             FileInfo fileInfo = new FileInfo(file);
             fileInfo.Delete();
-            for (int i = 0; i < employees.employees.Count; ++i)
+            for (int i = 0; i < employees.Count; ++i)
             {
-                FileHandling.Filling(employees.employees[i], ref file);
+                FileHandling.Filling(employees[i], ref file);
             }
 
         }
