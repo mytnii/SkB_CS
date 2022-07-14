@@ -148,5 +148,38 @@ namespace EmployeeHandbook
             }
         }
 
+        /// <summary>
+        /// Удаление записи
+        /// </summary>
+        /// <param name="file">Имя файла</param>
+        /// <param name="id">Номер записи</param>
+        public void RecordDeletion( ref string file)
+        {
+            int ID;
+            int.TryParse(ConsoleOperation.RecordNumber(), out ID);
+
+            if (this.employees.Count >= ID && ID != 0)
+            {
+                for (int i = ID; i < this.employees.Count; i++)
+                {
+                    this.employees[i].id = i;
+                }
+
+                this.employees.RemoveAt(ID - 1);
+
+                FileInfo fileInfo = new FileInfo(file);
+                fileInfo.Delete();
+                for (int i = 0; i < this.employees.Count; ++i)
+                {
+                    FileHandling.Filling(this.employees[i], ref file);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Записи с таким номером нет");
+            }
+        }
+
+
     }
 }
