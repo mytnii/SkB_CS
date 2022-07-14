@@ -212,6 +212,27 @@ namespace EmployeeHandbook
             }
         }
 
+        /// <summary>
+        /// Сортировка по фамилии
+        /// </summary>
+        public void SortingByLastName()
+        {
+            Employee employee = new Employee();
+
+            for(int i = 0; i < this.employees.Count; i++)
+            {
+                for(int j = i; j < this.employees.Count; j++)
+                {
+                    if(string.Compare(this.employees[i].lastName, this.employees[j].lastName) > 0)
+                    {
+                        employee = this.employees[i];
+                        this.employees[i] = this.employees[j];
+                        this.employees[j]= employee;
+                    }
+                }
+            }
+        }
+
 
     }
 }
