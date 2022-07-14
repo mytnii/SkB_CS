@@ -87,13 +87,13 @@ namespace EmployeeHandbook
         {
 
             int ID;
-            List<Employee> employees = Employee.ListOfEmployees(file);
+            Diary employees = new Diary(file);
             int.TryParse(id, out ID);
 
-            if(employees.Count >= ID && ID != 0)
+            if(employees.employees.Count >= ID && ID != 0)
             {
                 ConsoleOperation.TablePrint();
-                ConsoleOperation.PrintEmployee(employees[ID - 1]);
+                ConsoleOperation.PrintEmployee(employees.employees[ID - 1]);
             }
             else
             {
@@ -235,6 +235,10 @@ namespace EmployeeHandbook
 
         }
 
+        /// <summary>
+        /// Ввод места рождения
+        /// </summary>
+        /// <returns>Место рождения</returns>
         public static string EmployeeBrithPlace()
         {
             string brithPlace;
