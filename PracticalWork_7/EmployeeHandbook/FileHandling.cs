@@ -110,12 +110,12 @@ namespace EmployeeHandbook
                 Console.WriteLine("5 - Дата рождения");
                 Console.WriteLine("6 - Место рождения");
 
-                byte value;
-                byte.TryParse(Console.ReadLine(), out value);
+                int value;
+                int.TryParse(Console.ReadLine(), out value);
 
                 int size = ID - 1;
 
-                switch(ID)
+                switch(value)
                 {
                     case 0:
                         Console.WriteLine("Некоректный выбор");
