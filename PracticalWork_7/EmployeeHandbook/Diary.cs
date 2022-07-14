@@ -295,5 +295,27 @@ namespace EmployeeHandbook
                 }
             }
         }
+
+        /// <summary>
+        /// Сортировка по дате рождения
+        /// </summary>
+        public void BrithDateSorting()
+        {
+            Employee employee = new Employee();
+
+            for (int i = 0; i < this.employees.Count; i++)
+            {
+                for (int j = i; j < this.employees.Count; j++)
+                {
+                    if (this.employees[i].brithDate > this.employees[j].brithDate)
+                    {
+                        employee = this.employees[i];
+                        this.employees[i] = this.employees[j];
+                        this.employees[j] = employee;
+                    }
+                }
+            }
+        }
+
     }
 }
