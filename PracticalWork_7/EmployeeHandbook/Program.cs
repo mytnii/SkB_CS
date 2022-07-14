@@ -66,6 +66,11 @@ namespace EmployeeHandbook
                     byte.TryParse(Console.ReadLine(), out size);
                     string str;
 
+                    if(!File.Exists(file))
+                    {
+                        File.Create(file);
+                    }
+                    Diary employees = new Diary(file);
                     switch (size)
                     {
                         case 0:
@@ -74,19 +79,11 @@ namespace EmployeeHandbook
                             continue;
                         case 1:
 
-                            if (File.Exists(file))
-                            {
-                                List<Employee> employees = Employee.ListOfEmployees(file);
                                 ConsoleOperation.TablePrint();
-                                for (int i = 0; i < employees.Count; i++)
+                                for (int i = 0; i < employees.employees.Count; i++)
                                 {
-                                    ConsoleOperation.PrintEmployee(employees[i]);
+                                    ConsoleOperation.PrintEmployee(employees.employees[i]);
                                 } 
-                            }
-                            else
-                            {
-                                Console.WriteLine("Данных нет");
-                            }
                             break;
                         case 2:
                             Employee employee = new Employee();
@@ -94,40 +91,19 @@ namespace EmployeeHandbook
                             FileHandling.Filling(employee, ref file);
                             break;
                         case 3:
-                            if (File.Exists(file))
-                            {
                                 Console.WriteLine("Введите номер записи");
                                 str = Console.ReadLine();
                                 ConsoleOperation.RecordView(ref str, ref file); 
-                            }
-                            else
-                            {
-                                Console.WriteLine("Записей нет");
-                            }
                             break;
                         case 4:
-                            if (File.Exists(file))
-                            {
                                 Console.WriteLine("Введите номер записи");
                                 str = Console.ReadLine();
                                 FileHandling.RecordDeletion(ref file, ref str); 
-                            }
-                            else
-                            {
-                                Console.WriteLine("Нечего удалять");
-                            }
                             break;
                         case 5:
-                            if (File.Exists(file))
-                            {
                                 Console.WriteLine("Введите номер записи");
                                 str = Console.ReadLine();
                                 FileHandling.RecordEditing(ref file, ref str); 
-                            }
-                            else
-                            {
-                                Console.WriteLine("Нечего редактироват");
-                            }
                             break;
                     }
 
