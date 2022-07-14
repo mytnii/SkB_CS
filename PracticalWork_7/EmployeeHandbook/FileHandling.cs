@@ -56,37 +56,6 @@ namespace EmployeeHandbook
             return line;
         }
 
-        /// <summary>
-        /// Удаление записи
-        /// </summary>
-        /// <param name="file">Имя файла</param>
-        /// <param name="id">Номер записи</param>
-        public static void RecordDeletion(Diary employees, ref string file)
-        {
-            int ID;
-            int.TryParse(ConsoleOperation.RecordNumber(), out ID);
-
-            if(employees.employees.Count >= ID && ID != 0)
-            {
-                for(int i = ID; i < employees.employees.Count; i++)
-                {
-                    employees.employees[i].id = i;
-                }
-
-                employees.employees.RemoveAt(ID - 1);
-
-                FileInfo fileInfo = new FileInfo(file);
-                fileInfo.Delete();
-                for(int i = 0; i < employees.employees.Count; ++i)
-                {
-                    Filling(employees.employees[i], ref file);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Записи с таким номером нет");
-            }
-        }
 
     }
 }
