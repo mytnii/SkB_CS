@@ -170,6 +170,27 @@ namespace EmployeeHandbook
             }
         }
 
+        /// <summary>
+        /// Сортировка по номеру записи
+        /// </summary>
+        public void SortById()
+        {
+            Employee employee = new Employee();
+
+            for(int i = 0; i < this.employees.Count; i++)
+            {
+                for(int j = i; j < this.employees.Count; j++)
+                {
+                    if(this.employees[i].id > this.employees[j].id)
+                    {
+                        employee = this.employees[i];
+                        this.employees[i] = this.employees[j];
+                        this.employees[j] = employee;
+                    }
+                }
+            }
+        }
+
 
     }
 }
