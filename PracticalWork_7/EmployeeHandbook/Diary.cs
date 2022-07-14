@@ -213,7 +213,7 @@ namespace EmployeeHandbook
         }
 
         /// <summary>
-        /// Сортировка по фамилии
+        /// Сортировка по Фамилии
         /// </summary>
         public void SortingByLastName()
         {
@@ -233,6 +233,26 @@ namespace EmployeeHandbook
             }
         }
 
+        /// <summary>
+        /// Сортировка по Имени
+        /// </summary>
+        public void SortingByFirsName()
+        {
+            Employee employee = new Employee();
+
+            for (int i = 0; i < this.employees.Count; i++)
+            {
+                for (int j = i; j < this.employees.Count; j++)
+                {
+                    if (string.Compare(this.employees[i].firstName, this.employees[j].firstName) > 0)
+                    {
+                        employee = this.employees[i];
+                        this.employees[i] = this.employees[j];
+                        this.employees[j] = employee;
+                    }
+                }
+            }
+        }
 
     }
 }
