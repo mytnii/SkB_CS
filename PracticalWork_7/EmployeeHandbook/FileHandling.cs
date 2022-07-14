@@ -64,23 +64,23 @@ namespace EmployeeHandbook
         public static void RecordDeletion(ref string file, ref string id)
         {
             int ID;
-            List<Employee> employees = Employee.ListOfEmployees(file);
+            Diary employees = new Diary(file);
             int.TryParse(id, out ID);
 
-            if(employees.Count >= ID && ID != 0)
+            if(employees.employees.Count >= ID && ID != 0)
             {
-                for(int i = ID; i < employees.Count; i++)
+                for(int i = ID; i < employees.employees.Count; i++)
                 {
-                    employees[i].id = i;
+                    employees.employees[i].id = i;
                 }
 
-                employees.RemoveAt(ID - 1);
+                employees.employees.RemoveAt(ID - 1);
 
                 FileInfo fileInfo = new FileInfo(file);
                 fileInfo.Delete();
-                for(int i = 0; i < employees.Count; ++i)
+                for(int i = 0; i < employees.employees.Count; ++i)
                 {
-                    Filling(employees[i], ref file);
+                    Filling(employees.employees[i], ref file);
                 }
             }
             else
@@ -97,10 +97,10 @@ namespace EmployeeHandbook
         public static void RecordEditing(ref string file, ref string id)
         {
             int ID;
-            List<Employee> employees = Employee.ListOfEmployees(file);
+            Diary employees = new Diary(file);
             int.TryParse(id, out ID);
 
-            if(employees.Count >= ID && ID != 0)
+            if(employees.employees.Count >= ID && ID != 0)
             {
                 Console.WriteLine("Выберете что нужно отредактировать");
                 Console.WriteLine("1 - Фамилия");
@@ -121,45 +121,45 @@ namespace EmployeeHandbook
                         Console.WriteLine("Некоректный выбор");
                         break;
                     case 1:
-                        employees[size].lastName = ConsoleOperation.EmployeeLastName();
+                        employees.employees[size].lastName = ConsoleOperation.EmployeeLastName();
                         break;
                     case 2:
-                        employees[size].firstName = ConsoleOperation.EmployeeFirstName();
+                        employees.employees[size].firstName = ConsoleOperation.EmployeeFirstName();
                         break;
                     case 3:
-                        employees[size].patronumic = ConsoleOperation.EmployeePatronumic();
+                        employees.employees[size].patronumic = ConsoleOperation.EmployeePatronumic();
                         break;
                     case 4:
-                        employees[size].growth = ConsoleOperation.EmployeeGrowth();
+                        employees.employees[size].growth = ConsoleOperation.EmployeeGrowth();
                         break;
                     case 5:
                         do
                         {
-                            employees[size].brithDate = ConsoleOperation.EmployeeBrithDate();
-                            if (employees[size].brithDate.Year > employees[size].date.Year)
+                            employees.employees[size].brithDate = ConsoleOperation.EmployeeBrithDate();
+                            if (employees.employees[size].brithDate.Year > employees.employees[size].date.Year)
                             {
                                 Console.WriteLine("Не коректный ввод даты рождения ");
                             }
 
-                        } while(employees[size].date.Year < employees[size].brithDate.Year);
+                        } while(employees.employees[size].date.Year < employees.employees[size].brithDate.Year);
 
-                        employees[size].age = employees[size].date.Year - employees[size].brithDate.Year;
-                        if (employees[size].date.Month > employees[size].brithDate.Month)
+                        employees.employees[size].age = employees.employees[size].date.Year - employees.employees[size].brithDate.Year;
+                        if (employees.employees[size].date.Month > employees.employees[size].brithDate.Month)
                         {
-                            employees[size].age--;
+                            employees.employees[size].age--;
                         }
                         break;
                     case 6:
-                        employees[size].brithPlace = ConsoleOperation.EmployeeBrithPlace();
+                        employees.employees[size].brithPlace = ConsoleOperation.EmployeeBrithPlace();
                         break;
                 }
 
                 FileInfo fileInfo = new FileInfo(file);
                 fileInfo.Delete();
 
-                for(int i = 0; i < employees.Count; ++i)
+                for(int i = 0; i < employees.employees.Count; ++i)
                 {
-                    Filling(employees[i], ref file);
+                    Filling(employees.employees[i], ref file);
                 }
 
             }
