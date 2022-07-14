@@ -52,6 +52,12 @@ namespace EmployeeHandbook
             ConsoleKeyInfo key = Console.ReadKey();
             if (key.Key == ConsoleKey.Enter)
             {
+                string str;
+                Diary employees = new Diary();
+                if (File.Exists(file))
+                {
+                    employees.DiaryAddFile(file);
+                }
                 do
                 {
 
@@ -61,16 +67,11 @@ namespace EmployeeHandbook
                     Console.WriteLine("3 - Просмотр записи по введенному номеру");
                     Console.WriteLine("4 - Удаление записи по введенному номеру");
                     Console.WriteLine("5 - Редактирование записи");
+                    Console.WriteLine("6 - Сортировка");
 
                     byte size;
                     byte.TryParse(Console.ReadLine(), out size);
-                    string str;
-                    Diary employees = new Diary();
 
-                    if(File.Exists(file))
-                    {
-                        employees.DiaryAddFile(file);
-                    }
 
                   
                     switch (size)
@@ -108,6 +109,9 @@ namespace EmployeeHandbook
                             break;
                         case 5:
                                 employees.RecordEditing( ref file); 
+                            break;
+                        case 6:
+                            employees.SortMenu();
                             break;
                     }
 

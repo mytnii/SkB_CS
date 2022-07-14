@@ -328,13 +328,14 @@ namespace EmployeeHandbook
             {
                 for (int j = i; j < this.employees.Count; j++)
                 {
-                    if (string.Compare(this.employees[i].brithPlace, this.employees[j].brithPlace) > 0)
+                    if (string.Compare(employees[i].brithPlace, employees[j].brithPlace) > 0)
                     {
-                        employee = this.employees[i];
-                        this.employees[i] = this.employees[j];
+                        employee= this.employees[i];
+                        this.employees[i] = employees[j];
                         this.employees[j] = employee;
                     }
                 }
+                ConsoleOperation.PrintEmployee(employees[i]);
             }
         }
 
@@ -362,7 +363,7 @@ namespace EmployeeHandbook
                 case "1":
                     Console.WriteLine("По возрастанию Y/N");
                     key = Console.ReadKey();
-                    SortById();
+                    this.SortById();
                     if(key.Key == ConsoleKey.N)
                     {
                         this.employees.Reverse();
@@ -371,7 +372,7 @@ namespace EmployeeHandbook
                 case "2":
                     Console.WriteLine("По возрастанию Y/N");
                     key = Console.ReadKey();
-                    DateSorting();
+                    this.DateSorting();
                     if (key.Key == ConsoleKey.N)
                     {
                         this.employees.Reverse();
@@ -380,7 +381,7 @@ namespace EmployeeHandbook
                 case "3":
                     Console.WriteLine("По возрастанию Y/N");
                     key = Console.ReadKey();
-                    SortingByLastName();
+                    this.SortingByLastName();
                     if (key.Key == ConsoleKey.N)
                     {
                         this.employees.Reverse();
@@ -389,7 +390,7 @@ namespace EmployeeHandbook
                 case "4":
                     Console.WriteLine("По возрастанию Y/N");
                     key = Console.ReadKey();
-                    SortingByFirstName();
+                    this.SortingByFirstName();
                     if (key.Key == ConsoleKey.N)
                     {
                         this.employees.Reverse();
@@ -398,7 +399,7 @@ namespace EmployeeHandbook
                 case "5":
                     Console.WriteLine("По возрастанию Y/N");
                     key = Console.ReadKey();
-                    SortingByPatronumic();
+                    this.SortingByPatronumic();
                     if (key.Key == ConsoleKey.N)
                     {
                         this.employees.Reverse();
@@ -407,7 +408,7 @@ namespace EmployeeHandbook
                 case "6":
                     Console.WriteLine("По возрастанию Y/N");
                     key = Console.ReadKey();
-                    SortByHeight();
+                    this.SortByHeight();
                     if (key.Key == ConsoleKey.N)
                     {
                         this.employees.Reverse();
@@ -416,7 +417,7 @@ namespace EmployeeHandbook
                 case "7":
                     Console.WriteLine("По возрастанию Y/N");
                     key = Console.ReadKey();
-                    BrithDateSorting();
+                    this.BrithDateSorting();
                     if (key.Key == ConsoleKey.N)
                     {
                         this.employees.Reverse();
