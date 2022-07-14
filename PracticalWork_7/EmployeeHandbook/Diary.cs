@@ -11,7 +11,7 @@ namespace EmployeeHandbook
     /// </summary>
     internal class Diary
     {
-        List<Employee> employees; // Список сотрудников
+       public List<Employee> employees; // Список сотрудников
 
 
         /// <summary>
@@ -20,6 +20,19 @@ namespace EmployeeHandbook
         public Diary()
         {
             employees = new List<Employee>();
+        }
+
+        /// <summary>
+        /// Конструктор с одним параметром
+        /// </summary>
+        /// <param name="file">Имя файла</param>
+        public  Diary (string file)
+        {
+            string[] str = FileHandling.FileReading(ref file);
+            for (int i = 0; i < str.Length; i++)
+            {
+                employees.Add(new Employee(str[i]));
+            }
         }
     }
 }
