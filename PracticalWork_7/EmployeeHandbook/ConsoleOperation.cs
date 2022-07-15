@@ -243,5 +243,30 @@ namespace EmployeeHandbook
             Console.WriteLine("Введите номер записи");
             return Console.ReadLine();
         }
+
+        /// <summary>
+        /// Вывод по диапозону номеров
+        /// </summary>
+        /// <param name="employees"></param>
+        /// <param name="startValue"></param>
+        /// <param name="endValue"></param>
+        public static void OutputByRangeID(ref List<Employee> employees, int startValue, int endValue)
+        {
+                TablePrint();
+            if(employees.Count != 0)
+            {
+            if(startValue >= endValue)
+            {
+                    employees.Reverse();
+            }
+                    for (int i = 0; i < employees.Count; ++i)
+                    {
+                        if(startValue <= employees[i].id && endValue >= employees[i].id)
+                        {
+                            PrintEmployee(employees[i]);
+                        }
+                    }
+            }
+        }
     }
 }
