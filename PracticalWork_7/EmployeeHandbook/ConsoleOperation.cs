@@ -294,5 +294,35 @@ namespace EmployeeHandbook
             }
         }
 
+        /// <summary>
+        /// Вывод по диапозону Фамилии
+        /// </summary>
+        /// <param name="employees">Список сотрудников</param>
+        /// <param name="startValue">Начало диапозона</param>
+        /// <param name="endValue">Конец диапозона</param>
+        public static void OutputByRangeLastName(ref List<Employee> employees, string startValue, string endValue)
+        {
+            TablePrint();
+            if (employees.Count != 0)
+            {
+                if (string.Compare(startValue, endValue) > 0)
+                {
+                    employees.Reverse();
+                }
+                for (int i = 0; i < employees.Count; ++i)
+                {
+                    if 
+                        (
+                        string.Compare(startValue, employees[i].lastName) <= 0 && 
+                        string.Compare(endValue, employees[i].lastName) >= 0
+                        )
+                    {
+                        PrintEmployee(employees[i]);
+                    }
+                }
+            }
+        }
+
+
     }
 }
