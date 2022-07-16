@@ -438,5 +438,136 @@ namespace EmployeeHandbook
 
                     Console.WriteLine();
         }
+
+        /// <summary>
+        /// Меню вывода диапозона
+        /// </summary>
+        public void RangeOutputMenu()
+        {
+            Console.WriteLine("Выберете парамет по которому будет осуществлятся вывод");
+            ConsoleOperation.MenuDesign();
+
+            string str = Console.ReadLine();
+
+            switch(str)
+            {
+                case "1":
+                    this.SortById();
+                    Console.WriteLine("Введите начало диапозона");
+                    int startValue;
+                    int.TryParse(Console.ReadLine(), out startValue);
+
+                    Console.WriteLine("Введите конец диапозона");
+                    int endValue;
+                    int.TryParse(Console.ReadLine(),out endValue);
+
+                    if(startValue == 0 || endValue == 0)
+                    {
+                        Console.WriteLine("Не коректный ввод диапозона");
+                        break;
+                    }
+
+                    ConsoleOperation.OutputByRange(ref this.employees, startValue, endValue);
+                    break;
+                case "2":
+                    this.DateSorting();
+                    Console.WriteLine("Введите начало диапозона");
+                    DateTime startDate;
+                    DateTime.TryParse(Console.ReadLine(), out startDate);
+
+                    Console.WriteLine("Введите конец диапозона");
+                    DateTime endDate;
+                    DateTime.TryParse(Console.ReadLine(), out  endDate);
+
+                    if(startDate.Year == 0 || endDate.Year == 0)
+                    {
+                        Console.WriteLine("Не коректный ввод диапозона");
+                        break;
+                    }
+
+                    ConsoleOperation.OutputByRangeDate(ref this.employees, startDate, endDate);
+                    break;
+                case "3":
+                    this.SortingByLastName();
+                    Console.WriteLine("Введите начало диапозона");
+                    string startLastName = Console.ReadLine();
+
+                    Console.WriteLine("Введите конец диапозона");
+                    string endLastName = Console.ReadLine();
+
+                    ConsoleOperation.OutputByRangeLastName(ref this.employees, startLastName, endLastName);
+                    break;
+                case "4":
+                    this.SortingByLastName();
+                    Console.WriteLine("Введите начало диапозона");
+                    string startFirstName = Console.ReadLine();
+
+                    Console.WriteLine("Введите конец диапозона");
+                    string endFirstName = Console.ReadLine();
+
+                    ConsoleOperation.OutputByRangeFirstName(ref this.employees, startFirstName, endFirstName);
+                    break;
+                case "5":
+                    this.SortingByLastName();
+                    Console.WriteLine("Введите начало диапозона");
+                    string startPatronumic = Console.ReadLine();
+
+                    Console.WriteLine("Введите конец диапозона");
+                    string endPatronumic = Console.ReadLine();
+
+                    ConsoleOperation.OutputByRangePatronumic(ref this.employees, startPatronumic, endPatronumic);
+                    break;
+                case "6":
+                    this.SortById();
+                    Console.WriteLine("Введите начало диапозона");
+                    int startGrowth;
+                    int.TryParse(Console.ReadLine(), out startGrowth);
+
+                    Console.WriteLine("Введите конец диапозона");
+                    int endGrowth;
+                    int.TryParse(Console.ReadLine(), out endGrowth);
+
+                    if (startGrowth == 0 || endGrowth == 0)
+                    {
+                        Console.WriteLine("Не коректный ввод диапозона");
+                        break;
+                    }
+
+                    ConsoleOperation.OutputByRange(ref this.employees, startGrowth, endGrowth);
+                    break;
+                case "7":
+                    this.DateSorting();
+                    Console.WriteLine("Введите начало диапозона");
+                    DateTime startBrithDate;
+                    DateTime.TryParse(Console.ReadLine(), out startBrithDate);
+
+                    Console.WriteLine("Введите конец диапозона");
+                    DateTime endBrithDate;
+                    DateTime.TryParse(Console.ReadLine(), out endBrithDate);
+
+                    if (startBrithDate.Year == 0 || endBrithDate.Year == 0)
+                    {
+                        Console.WriteLine("Не коректный ввод диапозона");
+                        break;
+                    }
+
+                    ConsoleOperation.OutputByRangeDate(ref this.employees, startBrithDate, endBrithDate);
+                    break;
+                case "8":
+                    this.SortingByLastName();
+                    Console.WriteLine("Введите начало диапозона");
+                    string startBrithPlace = Console.ReadLine();
+
+                    Console.WriteLine("Введите конец диапозона");
+                    string endBrithPlace = Console.ReadLine();
+
+                    ConsoleOperation.OutputByRangePatronumic(ref this.employees, startBrithPlace, endBrithPlace);
+                    break;
+                default:
+                    Console.WriteLine("Не коректный выбор параметра");
+                    break;
+            }
+
+        }
     }
 }
