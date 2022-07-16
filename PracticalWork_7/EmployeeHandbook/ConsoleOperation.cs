@@ -406,5 +406,30 @@ namespace EmployeeHandbook
             }
         }
 
+        /// <summary>
+        /// Вывод диапозона по дате рождения
+        /// </summary>
+        /// <param name="employees">Список сотрудников</param>
+        /// <param name="startValue">Начало диапозона</param>
+        /// <param name="endValue">Конец диапозона</param>
+        public static void OutputByRangeBrithDate(ref List<Employee> employees, DateTime startValue, DateTime endValue)
+        {
+            TablePrint();
+            if (employees.Count != 0)
+            {
+                if (startValue >= endValue)
+                {
+                    employees.Reverse();
+                }
+                for (int i = 0; i < employees.Count; ++i)
+                {
+                    if (startValue <= employees[i].brithDate && endValue >= employees[i].brithDate)
+                    {
+                        PrintEmployee(employees[i]);
+                    }
+                }
+            }
+        }
+
     }
 }
