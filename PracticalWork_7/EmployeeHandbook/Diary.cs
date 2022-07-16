@@ -344,14 +344,7 @@ namespace EmployeeHandbook
         public void SortMenu()
         {
             Console.WriteLine("Выберете поле по которому нужно отсортировать");
-            Console.WriteLine("1 - По номеру записи");
-            Console.WriteLine("2 - По дата добавления");
-            Console.WriteLine("3 - По Фамилии");
-            Console.WriteLine("4 - По Имени");
-            Console.WriteLine("5 - По отчеству");
-            Console.WriteLine("6 - По росту");
-            Console.WriteLine("7 - По дате рождения");
-            Console.WriteLine("8 - По месту рождения");
+            ConsoleOperation.MenuDesign();
 
             string str = Console.ReadLine();
 
