@@ -431,5 +431,34 @@ namespace EmployeeHandbook
             }
         }
 
+        /// <summary>
+        /// Вывод диапозона по месту рождения
+        /// </summary>
+        /// <param name="employees">Список сотрудников</param>
+        /// <param name="startValue">Начало диапозона</param>
+        /// <param name="endValue">Конец диапозона</param>
+        public static void OutputByRangeBrithPlace(ref List<Employee> employees, string startValue, string endValue)
+        {
+            TablePrint();
+            if (employees.Count != 0)
+            {
+                if (string.Compare(startValue, endValue) > 0)
+                {
+                    employees.Reverse();
+                }
+                for (int i = 0; i < employees.Count; ++i)
+                {
+                    if
+                        (
+                        string.Compare(startValue, employees[i].brithPlace) <= 0 &&
+                        string.Compare(endValue, employees[i].brithPlace) >= 0
+                        )
+                    {
+                        PrintEmployee(employees[i]);
+                    }
+                }
+            }
+        }
+
     }
 }
