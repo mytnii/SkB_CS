@@ -253,19 +253,32 @@ namespace EmployeeHandbook
         public static void OutputByRange(ref List<Employee> employees, int startValue, int endValue)
         {
                 TablePrint();
-            if(employees.Count != 0)
+            if (employees.Count != 0)
             {
-            if(startValue >= endValue)
-            {
+                if (startValue > endValue)
+                {
                     employees.Reverse();
-            }
+
                     for (int i = 0; i < employees.Count; ++i)
                     {
-                        if(startValue <= employees[i].id && endValue >= employees[i].id)
+                        if (startValue >= employees[i].id && endValue <= employees[i].id)
                         {
                             PrintEmployee(employees[i]);
                         }
                     }
+
+                }
+                else
+                {
+                    for (int i = 0; i < employees.Count; ++i)
+                    {
+                        if (startValue <= employees[i].id && endValue >= employees[i].id)
+                        {
+                            PrintEmployee(employees[i]);
+                        }
+                    }
+
+                }
             }
         }
 
@@ -283,13 +296,25 @@ namespace EmployeeHandbook
                 if (startValue >= endValue)
                 {
                     employees.Reverse();
-                }
-                for (int i = 0; i < employees.Count; ++i)
-                {
-                    if (startValue <= employees[i].date && endValue >= employees[i].date)
+                    for (int i = 0; i < employees.Count; ++i)
                     {
-                        PrintEmployee(employees[i]);
+                        if (startValue >= employees[i].date && endValue <= employees[i].date)
+                        {
+                            PrintEmployee(employees[i]);
+                        }
                     }
+
+                }
+                else
+                {
+                    for (int i = 0; i < employees.Count; ++i)
+                    {
+                        if (startValue <= employees[i].date && endValue >= employees[i].date)
+                        {
+                            PrintEmployee(employees[i]);
+                        }
+                    }
+
                 }
             }
         }
@@ -308,17 +333,33 @@ namespace EmployeeHandbook
                 if (string.Compare(startValue, endValue) > 0)
                 {
                     employees.Reverse();
-                }
-                for (int i = 0; i < employees.Count; ++i)
-                {
-                    if 
-                        (
-                        string.Compare(startValue, employees[i].lastName) <= 0 && 
-                        string.Compare(endValue, employees[i].lastName) >= 0
-                        )
+                    for (int i = 0; i < employees.Count; ++i)
                     {
-                        PrintEmployee(employees[i]);
+                        if
+                            (
+                            string.Compare(startValue, employees[i].lastName) >= 0 &&
+                            string.Compare(endValue, employees[i].lastName) <= 0
+                            )
+                        {
+                            PrintEmployee(employees[i]);
+                        }
                     }
+
+                }
+                else
+                {
+                    for (int i = 0; i < employees.Count; ++i)
+                    {
+                        if
+                            (
+                            string.Compare(startValue, employees[i].lastName) <= 0 &&
+                            string.Compare(endValue, employees[i].lastName) >= 0
+                            )
+                        {
+                            PrintEmployee(employees[i]);
+                        }
+                    }
+
                 }
             }
         }
@@ -337,17 +378,33 @@ namespace EmployeeHandbook
                 if (string.Compare(startValue, endValue) > 0)
                 {
                     employees.Reverse();
-                }
-                for (int i = 0; i < employees.Count; ++i)
-                {
-                    if
-                        (
-                        string.Compare(startValue, employees[i].firstName) <= 0 &&
-                        string.Compare(endValue, employees[i].firstName) >= 0
-                        )
+                    for (int i = 0; i < employees.Count; ++i)
                     {
-                        PrintEmployee(employees[i]);
+                        if
+                            (
+                            string.Compare(startValue, employees[i].firstName) >= 0 &&
+                            string.Compare(endValue, employees[i].firstName) <= 0
+                            )
+                        {
+                            PrintEmployee(employees[i]);
+                        }
                     }
+
+                }
+                else
+                {
+                    for (int i = 0; i < employees.Count; ++i)
+                    {
+                        if
+                            (
+                            string.Compare(startValue, employees[i].firstName) <= 0 &&
+                            string.Compare(endValue, employees[i].firstName) >= 0
+                            )
+                        {
+                            PrintEmployee(employees[i]);
+                        }
+                    }
+
                 }
             }
         }
@@ -366,17 +423,34 @@ namespace EmployeeHandbook
                 if (string.Compare(startValue, endValue) > 0)
                 {
                     employees.Reverse();
-                }
-                for (int i = 0; i < employees.Count; ++i)
-                {
-                    if
-                        (
-                        string.Compare(startValue, employees[i].patronumic) <= 0 &&
-                        string.Compare(endValue, employees[i].patronumic) >= 0
-                        )
+                    for (int i = 0; i < employees.Count; ++i)
                     {
-                        PrintEmployee(employees[i]);
+                        if
+                            (
+                            string.Compare(startValue, employees[i].patronumic) >= 0 &&
+                            string.Compare(endValue, employees[i].patronumic) <= 0
+                            )
+                        {
+                            PrintEmployee(employees[i]);
+                        }
                     }
+
+                }
+
+                else
+                {
+                    for (int i = 0; i < employees.Count; ++i)
+                    {
+                        if
+                            (
+                            string.Compare(startValue, employees[i].patronumic) <= 0 &&
+                            string.Compare(endValue, employees[i].patronumic) >= 0
+                            )
+                        {
+                            PrintEmployee(employees[i]);
+                        }
+                    }
+
                 }
             }
         }
@@ -395,13 +469,26 @@ namespace EmployeeHandbook
                 if (startValue >= endValue)
                 {
                     employees.Reverse();
-                }
-                for (int i = 0; i < employees.Count; ++i)
-                {
-                    if (startValue <= employees[i].growth && endValue >= employees[i].growth)
+                    for (int i = 0; i < employees.Count; ++i)
                     {
-                        PrintEmployee(employees[i]);
+                        if (startValue >= employees[i].growth && endValue <= employees[i].growth)
+                        {
+                            PrintEmployee(employees[i]);
+                        }
                     }
+
+                }
+
+                else
+                {
+                    for (int i = 0; i < employees.Count; ++i)
+                    {
+                        if (startValue <= employees[i].growth && endValue >= employees[i].growth)
+                        {
+                            PrintEmployee(employees[i]);
+                        }
+                    }
+
                 }
             }
         }
@@ -420,13 +507,25 @@ namespace EmployeeHandbook
                 if (startValue >= endValue)
                 {
                     employees.Reverse();
-                }
-                for (int i = 0; i < employees.Count; ++i)
-                {
-                    if (startValue <= employees[i].brithDate && endValue >= employees[i].brithDate)
+                    for (int i = 0; i < employees.Count; ++i)
                     {
-                        PrintEmployee(employees[i]);
+                        if (startValue >= employees[i].brithDate && endValue <= employees[i].brithDate)
+                        {
+                            PrintEmployee(employees[i]);
+                        }
                     }
+
+                }
+                else
+                {
+                    for (int i = 0; i < employees.Count; ++i)
+                    {
+                        if (startValue <= employees[i].brithDate && endValue >= employees[i].brithDate)
+                        {
+                            PrintEmployee(employees[i]);
+                        }
+                    }
+
                 }
             }
         }
@@ -445,17 +544,34 @@ namespace EmployeeHandbook
                 if (string.Compare(startValue, endValue) > 0)
                 {
                     employees.Reverse();
-                }
-                for (int i = 0; i < employees.Count; ++i)
-                {
-                    if
-                        (
-                        string.Compare(startValue, employees[i].brithPlace) <= 0 &&
-                        string.Compare(endValue, employees[i].brithPlace) >= 0
-                        )
+                    for (int i = 0; i < employees.Count; ++i)
                     {
-                        PrintEmployee(employees[i]);
+                        if
+                            (
+                            string.Compare(startValue, employees[i].brithPlace) >= 0 &&
+                            string.Compare(endValue, employees[i].brithPlace) <= 0
+                            )
+                        {
+                            PrintEmployee(employees[i]);
+                        }
                     }
+
+                }
+
+                else
+                {
+                    for (int i = 0; i < employees.Count; ++i)
+                    {
+                        if
+                            (
+                            string.Compare(startValue, employees[i].brithPlace) <= 0 &&
+                            string.Compare(endValue, employees[i].brithPlace) >= 0
+                            )
+                        {
+                            PrintEmployee(employees[i]);
+                        }
+                    }
+
                 }
             }
         }

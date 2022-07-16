@@ -479,7 +479,7 @@ namespace EmployeeHandbook
                     DateTime endDate;
                     DateTime.TryParse(Console.ReadLine(), out  endDate);
 
-                    if(startDate.Year == 0 || endDate.Year == 0)
+                    if(startDate.Year == 0001 || endDate.Year == 0001)
                     {
                         Console.WriteLine("Не коректный ввод диапозона");
                         break;
@@ -541,17 +541,18 @@ namespace EmployeeHandbook
                     DateTime startBrithDate;
                     DateTime.TryParse(Console.ReadLine(), out startBrithDate);
 
+
                     Console.WriteLine("Введите конец диапозона");
                     DateTime endBrithDate;
                     DateTime.TryParse(Console.ReadLine(), out endBrithDate);
 
-                    if (startBrithDate.Year == 0 || endBrithDate.Year == 0)
+                    if (startBrithDate.Year == 0001 || endBrithDate.Year == 0001)
                     {
                         Console.WriteLine("Не коректный ввод диапозона");
                         break;
                     }
 
-                    ConsoleOperation.OutputByRangeDate(ref this.employees, startBrithDate, endBrithDate);
+                    ConsoleOperation.OutputByRangeBrithDate(ref this.employees, startBrithDate, endBrithDate);
                     break;
                 case "8":
                     this.SortingByLastName();

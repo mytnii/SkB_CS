@@ -68,6 +68,7 @@ namespace EmployeeHandbook
                     Console.WriteLine("4 - Удаление записи по введенному номеру");
                     Console.WriteLine("5 - Редактирование записи");
                     Console.WriteLine("6 - Сортировка");
+                    Console.WriteLine("7 - Вывод данных по выбранному диапозону");
 
                     byte size;
                     byte.TryParse(Console.ReadLine(), out size);
@@ -112,6 +113,9 @@ namespace EmployeeHandbook
                             break;
                         case 6:
                             employees.SortMenu();
+                            break;
+                        case 7:
+                            employees.RangeOutputMenu();
                             break;
                     }
 
