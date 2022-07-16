@@ -381,5 +381,30 @@ namespace EmployeeHandbook
             }
         }
 
+        /// <summary>
+        /// Вывод диапозона по росту
+        /// </summary>
+        /// <param name="employees">Список сотрудников</param>
+        /// <param name="startValue">Начало диапозона</param>
+        /// <param name="endValue">Конец диапозона</param>
+        public static void OutputByRangeGrowth(ref List<Employee> employees, int startValue, int endValue)
+        {
+            TablePrint();
+            if (employees.Count != 0)
+            {
+                if (startValue >= endValue)
+                {
+                    employees.Reverse();
+                }
+                for (int i = 0; i < employees.Count; ++i)
+                {
+                    if (startValue <= employees[i].growth && endValue >= employees[i].growth)
+                    {
+                        PrintEmployee(employees[i]);
+                    }
+                }
+            }
+        }
+
     }
 }
