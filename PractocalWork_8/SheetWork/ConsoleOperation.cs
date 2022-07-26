@@ -19,9 +19,9 @@ namespace SheetWork
         {
             foreach (int number in numbers)
             {
-                Console.WriteLine(number);
+                Console.Write($"{number}\t");
             }
-            Console.WriteLine();
+            Console.WriteLine($"\n\n{numbers.Count}\n");
         }
     }
 }

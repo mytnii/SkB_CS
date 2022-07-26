@@ -10,6 +10,10 @@ namespace SheetWork
             numbers.SheetFilling();
 
             ConsoleOperation.SheetPrinting(numbers.Numbers);
+
+            numbers.NumberDeletion();
+
+            ConsoleOperation.SheetPrinting(numbers.Numbers);
         }
     }
 }
