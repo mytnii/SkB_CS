@@ -8,6 +8,8 @@ namespace SheetWork
         {
             WorkSheet numbers = new WorkSheet();
             numbers.SheetFilling();
+
+            ConsoleOperation.SheetPrinting(numbers.Numbers);
         }
     }
 }
