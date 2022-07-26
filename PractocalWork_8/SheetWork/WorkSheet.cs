@@ -13,6 +13,10 @@ namespace SheetWork
     {
         private List<int> _numbers; // Лист целых чисел
 
+        public List<int> Numbers
+        {
+            get { return _numbers; }
+        }
         public WorkSheet()
         {
             _numbers = new List<int>();
