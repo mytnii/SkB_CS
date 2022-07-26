@@ -34,5 +34,20 @@ namespace SheetWork
                 this._numbers.Add(random.Next(101));
             }
         }
+
+        /// <summary>
+        /// Удаление числа которое больше 25 но меньше 50
+        /// </summary>
+        public void NumberDeletion()
+        {
+            for(int i = 0;i < _numbers.Count; i++)
+            {
+                if(this._numbers[i] > 25 && this._numbers[i] < 50)
+                {
+                    this._numbers.RemoveAt(i);
+                    --i;
+                }
+            }
+        }
     }
 }
