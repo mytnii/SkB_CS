@@ -15,7 +15,7 @@ namespace SheetWork
         /// Печать на экран
         /// </summary>
         /// <param name="numbers">Лист целых чисел</param>
-        public static void SheetPrinting(ref List<int> numbers)
+        public static void SheetPrinting(List<int> numbers)
         {
             foreach (int number in numbers)
             {
