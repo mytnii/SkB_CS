@@ -1,0 +1,62 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PhoneBook
+{
+    /// <summary>
+    /// Работа с консолью
+    /// </summary>
+    internal class ConsoleOperation
+    {
+
+        /// <summary>
+        /// Заполнение владельца с клавиатуры
+        /// </summary>
+        /// <returns>Владелец</returns>
+      private static Owner OwnerFill()
+        {
+            Owner owner = new Owner();
+            owner.LastName = null;
+            owner.FirstName = null;
+            owner.Patronumic = null;
+
+            while (owner.LastName == null)
+            {
+                Console.WriteLine("Введите Фамилию");
+                owner.LastName = Console.ReadLine();
+
+                if(owner.LastName == null)
+                {
+                    Console.WriteLine("Фамилия не введена\n");
+                }
+            }
+
+            while (owner.FirstName == null)
+            {
+                Console.WriteLine("Введите Имя");
+                owner.FirstName= Console.ReadLine();
+
+                if(owner.FirstName == null)
+                {
+                    Console.WriteLine("Имя не введено\n");
+                }
+            }
+
+            while (owner.Patronumic == null)
+            {
+                Console.WriteLine("Введите отчество");
+                owner.Patronumic= Console.ReadLine();
+
+                if(owner.Patronumic == null)
+                {
+                    Console.WriteLine("Отчество не введено");
+                }
+            }
+
+            return owner;
+        }
+    }
+}
