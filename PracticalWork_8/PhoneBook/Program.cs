@@ -20,7 +20,8 @@ namespace PhoneBook
     {
         static void Main(string[] args)
         {
-            Dictionary<int, string> phone = new Dictionary<int, string>();
+            // основное меню
+            PhoneBook.Menu();
         }
     }
 }
