@@ -13,6 +13,9 @@ namespace PhoneBook
     {
        private List<Dictionary<string, Owner>> _phoneBook;
 
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
         public PhoneBook()
         {
             this._phoneBook = new List<Dictionary<string,Owner>>();
