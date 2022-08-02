@@ -82,5 +82,18 @@ namespace PhoneBook
 
             return phoneNumber;
         }
+
+        /// <summary>
+        /// Окончание записи
+        /// </summary>
+        public static void EndOfRecord()
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine
+               (
+               "|----|--------------------|---------------|----------|---------------|--------|----|--------------------|---------------|"
+               );
+            Console.ResetColor();
+        }
     }
 }
