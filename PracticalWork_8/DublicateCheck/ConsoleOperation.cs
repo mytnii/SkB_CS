@@ -32,5 +32,24 @@ namespace DublicateCheck
 
             } while (true);
         }
+
+        /// <summary>
+        /// Проверка присутсвия числа в коллекции
+        /// </summary>
+        /// <param name="numbers">Коллекция чисел</param>
+        /// <param name="number">Число</param>
+        public static void CheckNumber(ref HashSet<int> numbers, int number)
+        {
+            if(numbers.Contains(number))
+            {
+                Console.WriteLine($"Число {number} присутствует в коллекции");
+            }
+            else
+            {
+                Console.WriteLine($"Число {number} успешно сохранено");
+                numbers.Add(number);
+            }
+        }
     }
+
 }
