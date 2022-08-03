@@ -12,6 +12,14 @@ namespace PhoneBook
     internal class ConsoleOperation
     {
 
+        enum Synopsis
+        {
+            Номер_телефона,
+            Фамилия,
+            Имя,
+            Отчество
+        }
+
         /// <summary>
         /// Заполнение владельца с клавиатуры
         /// </summary>
@@ -91,8 +99,26 @@ namespace PhoneBook
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine
                (
-               "|----|--------------------|---------------|----------|---------------|--------|----|--------------------|---------------|"
+               "|--------------------|---------------|----------|---------------|"
                );
+            Console.ResetColor();
+        }
+
+        /// <summary>
+        /// Печать таблици в консоль
+        /// </summary>
+        public static void TablePrint()
+        {
+            EndOfRecord();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine
+                (
+                $"|{Synopsis.Номер_телефона,20}|" +
+                $"{Synopsis.Фамилия,15}|" +
+                $"{Synopsis.Имя,10}|" +
+                $"{Synopsis.Отчество,15}|"
+                );
+            EndOfRecord();
             Console.ResetColor();
         }
     }
