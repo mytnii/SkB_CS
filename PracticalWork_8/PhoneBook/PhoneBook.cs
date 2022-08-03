@@ -67,6 +67,29 @@ namespace PhoneBook
                 key = Console.ReadKey();
                 Console.WriteLine();
             } while (key.Key == ConsoleKey.Y);
+
+        }
+
+        /// <summary>
+        /// Поиск владельца по номеру телефона
+        /// </summary>
+        /// <param name="phoneBook">Телефонная книга</param>
+        static void OwnerSearch(ref PhoneBook phoneBook)
+        {
+            string phoneNumber = ConsoleOperation.EnteringPhoneNumber();
+
+            Owner owner = new Owner();
+
+            if (phoneBook._phoneBook.TryGetValue(phoneNumber, out owner))
+            {
+                ConsoleOperation.TablePrint();
+                ConsoleOperation.PrintPhoneBook(phoneNumber, owner);
+            }
+            else
+            {
+                Console.WriteLine($"Владельца с номером {phoneNumber} не существует");
+            }
+
         }
     }
 }
