@@ -131,5 +131,18 @@ namespace PhoneBook
             Console.Write("|");
             Console.ResetColor();
         }
+
+        public static void PrintPhoneBook(ref string phoneNumber, ref Owner owner)
+        {
+            TextColorChange();
+            Console.Write($"{phoneNumber,20}");
+            TextColorChange();
+            Console.Write($"{owner.LastName,15}");
+            TextColorChange();
+            Console.Write($"{owner.FirstName,10}");
+            TextColorChange();
+            Console.Write($"{owner.Patronumic,15}");
+            EndOfRecord();
+        }
     }
 }
