@@ -132,7 +132,12 @@ namespace PhoneBook
             Console.ResetColor();
         }
 
-        public static void PrintPhoneBook(ref string phoneNumber, ref Owner owner)
+        /// <summary>
+        /// Печать телефонной книги
+        /// </summary>
+        /// <param name="phoneNumber">Номер телефона</param>
+        /// <param name="owner">Владелец</param>
+        public static void PrintPhoneBook(string phoneNumber,Owner owner)
         {
             TextColorChange();
             Console.Write($"{phoneNumber,20}");
@@ -142,6 +147,8 @@ namespace PhoneBook
             Console.Write($"{owner.FirstName,10}");
             TextColorChange();
             Console.Write($"{owner.Patronumic,15}");
+            TextColorChange();
+            Console.WriteLine();
             EndOfRecord();
         }
     }
