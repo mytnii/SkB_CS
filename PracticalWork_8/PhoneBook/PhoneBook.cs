@@ -38,6 +38,7 @@ namespace PhoneBook
                 Console.WriteLine("Введите действие");
                 Console.WriteLine("1 - добавление номера телефона и его владельца");
                 Console.WriteLine("2 - печать телефенной книги на экран");
+                Console.WriteLine("3 - поиск владельца по номеру телефона");
 
                 size = Console.ReadLine();
 
@@ -57,6 +58,9 @@ namespace PhoneBook
                         {
                             ConsoleOperation.PrintPhoneBook(phone.Key, phone.Value);
                         }
+                        break;
+                    case "3":
+                        OwnerSearch(ref phoneBook);
                         break;
                     default:
                         Console.WriteLine("Введено не правильное действие");
