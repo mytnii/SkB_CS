@@ -121,5 +121,15 @@ namespace PhoneBook
             EndOfRecord();
             Console.ResetColor();
         }
+
+        /// <summary>
+        /// Изменение цвета текста в консоли
+        /// </summary>
+        static void TextColorChange()
+        {
+            Console.ForegroundColor= ConsoleColor.Blue;
+            Console.Write("|");
+            Console.ResetColor();
+        }
     }
 }
