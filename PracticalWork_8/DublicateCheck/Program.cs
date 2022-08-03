@@ -18,6 +18,8 @@ namespace DublicateCheck
             HashSet<int> numbers = new HashSet<int>();
 
             AddNumber(ref numbers);
+
+            ConsoleOperation.PrintHashSet(ref numbers);
         }
 
         /// <summary>
@@ -37,7 +39,10 @@ namespace DublicateCheck
                 Console.WriteLine("Хотите продолжить Y/N");
                 key = Console.ReadKey();
 
+                Console.WriteLine();
+
             } while (key.Key == ConsoleKey.Y);
+
         }
     }
 }
