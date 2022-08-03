@@ -16,6 +16,8 @@ namespace DublicateCheck
         static void Main(string[] args)
         {
             HashSet<int> numbers = new HashSet<int>();
+
+            AddNumber(ref numbers);
         }
 
         /// <summary>
@@ -29,6 +31,8 @@ namespace DublicateCheck
             do
             {
                 int number = ConsoleOperation.NumericInput();
+
+                ConsoleOperation.CheckNumber(ref numbers, number);
 
                 Console.WriteLine("Хотите продолжить Y/N");
                 key = Console.ReadKey();
