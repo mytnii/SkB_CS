@@ -15,9 +15,25 @@ namespace DublicateCheck
     {
         static void Main(string[] args)
         {
-            HashSet<int> vs = new HashSet<int>();
+            HashSet<int> numbers = new HashSet<int>();
+        }
 
-            int number = ConsoleOperation.NumericInput();
+        /// <summary>
+        /// Добавление числа
+        /// </summary>
+        /// <param name="numbers">колекция чисел</param>
+        static void AddNumber(ref HashSet<int> numbers)
+        {
+            ConsoleKeyInfo key;
+
+            do
+            {
+                int number = ConsoleOperation.NumericInput();
+
+                Console.WriteLine("Хотите продолжить Y/N");
+                key = Console.ReadKey();
+
+            } while (key.Key == ConsoleKey.Y);
         }
     }
 }
