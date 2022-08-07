@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Notebook
 {
+    /// <summary>
+    /// Класс человек
+    /// </summary>
     internal class Person
     {
         #region Поля
