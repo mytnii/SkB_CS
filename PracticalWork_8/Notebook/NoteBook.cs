@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Notebook
 {
+    /// <summary>
+    /// Класс Записная книжка
+    /// </summary>
     internal class NoteBook
     {
         
