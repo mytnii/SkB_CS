@@ -32,7 +32,6 @@ namespace Notebook
     {
         static void Main(string[] args)
         {
-
         }
     }
 }

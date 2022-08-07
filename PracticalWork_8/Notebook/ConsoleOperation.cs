@@ -11,6 +11,18 @@ namespace Notebook
     /// </summary>
     internal class ConsoleOperation
     {
+        enum ContentsTables
+        {
+            Last_name,
+            First_name,
+            Patronumic,
+            Street,
+            House_number,
+            Flat_number,
+            Mobile_phone,
+            Flat_phone
+
+        }
         #region Методы
 
         /// <summary>
@@ -55,6 +67,42 @@ namespace Notebook
                 }
             } while (person.Patronumic == "");
         } 
+
+        /// <summary>
+        /// Печать таблици в консоль
+        /// </summary>
+        public static void PrintTable()
+        {
+            EndOfRecord();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine
+                (
+                $"|{ContentsTables.Last_name,15}|" +
+                $"{ContentsTables.First_name,10}|" +
+                $"{ContentsTables.Patronumic,15}|" +
+                $"{ContentsTables.Street,10}|" +
+                $"{ContentsTables.House_number,15}|" +
+                $"{ContentsTables.Flat_number,15}|" +
+                $"{ContentsTables.Mobile_phone,15}|" +
+                $"{ContentsTables.Flat_phone,15}|"
+                );
+            EndOfRecord();
+            Console.ResetColor();
+        }
+
+        /// <summary>
+        /// Окончание записи
+        /// </summary>
+        public static void EndOfRecord()
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine
+                (
+                "|---------------|----------|---------------|----------|---------------|---------------" +
+                "|---------------|---------------|"
+                );
+            Console.ResetColor();
+        }
 
         #endregion
     }
