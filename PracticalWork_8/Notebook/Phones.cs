@@ -13,7 +13,7 @@ namespace Notebook
     {
         #region Поля
 
-        private long _mobilePhone;  // Мобильный телефон
+        private string _mobilePhone;  // Мобильный телефон
         private string _flatPhone;  // Домашний телефон
 
         #endregion
@@ -23,7 +23,7 @@ namespace Notebook
         /// <summary>
         /// Мобильный телефон
         /// </summary>
-        public long MobilePhone
+        public string MobilePhone
         {
             get { return _mobilePhone; }
             set { _mobilePhone = value; }

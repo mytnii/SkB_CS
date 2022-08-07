@@ -117,6 +117,54 @@ namespace Notebook
         }
 
         /// <summary>
+        /// Ввод данных телефон: номер мобильного телефона, номер домашнего телефона
+        /// </summary>
+        /// <param name="phones">Телефон</param>
+        public static void DateEntryPhones(ref Phones phones)
+        {
+            // Ввод номера мобилного телефона
+            do
+            {
+                Console.WriteLine("Введите Мобильный номер телефона");
+                Console.WriteLine("Если нет мобильного номера телефона то введите -");
+                phones.MobilePhone = Console.ReadLine();
+                long mobilePhone;
+                long.TryParse(Console.ReadLine(), out mobilePhone);
+                if(phones.MobilePhone == "-" || mobilePhone != 0)
+                {
+                    break;
+                }
+
+                Console.WriteLine("Некоректный ввод номера телефона");
+            } while (true);
+
+            // Ввод домашнего номера телефона
+            do
+            {
+                bool flag = true;
+                Console.WriteLine("Введите домашний номер телефона");
+                Console.WriteLine("Если нет домашнего телефона то введите -");
+                phones.FlatPhone = Console.ReadLine();
+
+
+                for(int i = 0; i < phones.FlatPhone.Length; i++)
+                {
+                    if(phones.FlatPhone[i] != '-' || !char.IsDigit(phones.FlatPhone[i]))
+                    {
+                        flag = false;
+                        Console.WriteLine("Некоректный ввод номера телефона");
+                        break;
+                    }
+                }
+
+                if(flag)
+                {
+                    return;
+                }
+            } while (true);
+        }
+
+        /// <summary>
         /// Печать таблици в консоль
         /// </summary>
         public static void PrintTable()
