@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Notebook
 {
+    /// <summary>
+    /// Класс адрес
+    /// </summary>
     internal class Address
     {
     }
