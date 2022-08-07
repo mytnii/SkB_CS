@@ -72,7 +72,7 @@ namespace Notebook
         /// Ввод данных адрес: улица, номер дома, номер квартиры
         /// </summary>
         /// <param name="address">Адрес</param>
-        public static void DateEntryAddress(ref Address address)
+        public static void DateEntryAddress(Address address)
         {
             // Ввод названия улици
             do
@@ -120,7 +120,7 @@ namespace Notebook
         /// Ввод данных телефон: номер мобильного телефона, номер домашнего телефона
         /// </summary>
         /// <param name="phones">Телефон</param>
-        public static void DateEntryPhones(ref Phones phones)
+        public static void DateEntryPhones(Phones phones)
         {
             // Ввод номера мобилного телефона
             do
@@ -129,13 +129,16 @@ namespace Notebook
                 Console.WriteLine("Если нет мобильного номера телефона то введите -");
                 phones.MobilePhone = Console.ReadLine();
                 long mobilePhone;
-                long.TryParse(Console.ReadLine(), out mobilePhone);
-                if(phones.MobilePhone == "-" || mobilePhone != 0)
+                long.TryParse(phones.MobilePhone, out mobilePhone);
+                if(phones.MobilePhone != "-" && mobilePhone == 0)
+                {
+                    Console.WriteLine("Некоректный ввод номера телефона");
+                }
+                else
                 {
                     break;
                 }
 
-                Console.WriteLine("Некоректный ввод номера телефона");
             } while (true);
 
             // Ввод домашнего номера телефона
@@ -149,7 +152,7 @@ namespace Notebook
 
                 for(int i = 0; i < phones.FlatPhone.Length; i++)
                 {
-                    if(phones.FlatPhone[i] != '-' || !char.IsDigit(phones.FlatPhone[i]))
+                    if(phones.FlatPhone[i] != '-' && !(char.IsDigit(phones.FlatPhone[i])))
                     {
                         flag = false;
                         Console.WriteLine("Некоректный ввод номера телефона");
@@ -157,7 +160,13 @@ namespace Notebook
                     }
                 }
 
-                if(flag)
+                if (phones.FlatPhone == "")
+                {
+                    Console.WriteLine("Некоректный ввод номера телефона");
+                    flag = false;
+                }
+
+                if(flag = true)
                 {
                     return;
                 }

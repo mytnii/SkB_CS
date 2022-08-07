@@ -32,6 +32,7 @@ namespace Notebook
     {
         static void Main(string[] args)
         {
+            NoteBook.Menu();
         }
     }
 }
