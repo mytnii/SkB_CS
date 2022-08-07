@@ -26,7 +26,7 @@ namespace Notebook
         #region Методы
 
         /// <summary>
-        /// Ввод данны Человека: Фамилия, Имя, Отчество
+        /// Ввод данных Человека: Фамилия, Имя, Отчество
         /// </summary>
         /// <param name="person">Человек</param>
         public static void DataEntryPerson(ref Person person)
@@ -67,6 +67,54 @@ namespace Notebook
                 }
             } while (person.Patronumic == "");
         } 
+
+        /// <summary>
+        /// Ввод данных адрес: улица, номер дома, номер квартиры
+        /// </summary>
+        /// <param name="address">Адрес</param>
+        public static void DateEntryAddress(ref Address address)
+        {
+            // Ввод названия улици
+            do
+            {
+                Console.WriteLine("Введите название улици");
+                address.Street = Console.ReadLine();
+
+                if(address.Street == "")
+                {
+                    Console.WriteLine("Название улици не введено");
+                }
+            } while (address.Street == "");
+
+            // Ввод номера дома
+            do
+            {
+                Console.WriteLine("Введите номер дома");
+                int houseNumber;
+                int.TryParse(Console.ReadLine(), out houseNumber);
+
+                if(houseNumber == 0)
+                {
+                    Console.WriteLine("Не коректно введен номер дома");
+                }
+
+                address.HouseNumber = houseNumber;
+            } while (address.HouseNumber == 0);
+
+            // Ввод номера квартиры
+            do
+            {
+                Console.WriteLine("Введите номер квартиры");
+                int flatNumber;
+                int.TryParse(Console.ReadLine(), out flatNumber);
+
+                if(flatNumber == 0)
+                {
+                    Console.WriteLine("Не коректно введен номер квартиры");
+                }
+                address.FlatNumber = flatNumber;
+            } while (address.FlatNumber == 0);
+        }
 
         /// <summary>
         /// Печать таблици в консоль
