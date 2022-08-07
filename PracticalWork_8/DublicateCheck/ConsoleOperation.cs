@@ -50,6 +50,19 @@ namespace DublicateCheck
                 numbers.Add(number);
             }
         }
+
+        /// <summary>
+        /// Печать коллекции на экран
+        /// </summary>
+        /// <param name="numbers">Коллекция чисел</param>
+        public static void PrintHashSet(ref HashSet<int> numbers)
+        {
+            foreach(int i in numbers)
+            {
+                Console.Write($"{i}\t");
+            }
+            Console.WriteLine();
+        }
     }
 
 }
