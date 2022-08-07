@@ -11,5 +11,11 @@ namespace Notebook
     /// </summary>
     internal class Phones
     {
+        #region Поля
+
+        private long _mobilePhone;
+        private string _flatPhone;
+
+        #endregion
     }
 }
