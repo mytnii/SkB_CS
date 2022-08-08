@@ -35,25 +35,25 @@ namespace Notebook
             do
             {
                 Console.WriteLine("Введите фамилию");
-                person.FirstName = Console.ReadLine();
+                person.LastName = Console.ReadLine();
 
-                if (person.FirstName == "")
+                if (person.LastName == "")
                 {
                     Console.WriteLine("Фамилия не введена");
                 }
-            } while (person.FirstName == "");
+            } while (person.LastName == "");
 
             // Ввод имени
             do
             {
                 Console.WriteLine("Введите Имя");
-                person.LastName = Console.ReadLine();
+                person.FirstName = Console.ReadLine();
 
-                if(person.LastName == "")
+                if(person.FirstName == "")
                 {
                     Console.WriteLine("Имя не введено");
                 }
-            } while (person.LastName == "");
+            } while (person.FirstName == "");
 
             // Ввод Отчества
             do
@@ -206,6 +206,31 @@ namespace Notebook
                 "|---------------|----------|---------------|----------|---------------|---------------" +
                 "|---------------|---------------|"
                 );
+            Console.ResetColor();
+        }
+
+        /// <summary>
+        /// Печать Фамилии Имени и Отчества чеовека
+        /// </summary>
+        /// <param name="person">Человек</param>
+        public static void PrintPerson(ref Person person)
+        {
+            ColorChangeConsole();
+            Console.Write($"{person.LastName,15}");
+            ColorChangeConsole();
+            Console.Write($"{person.FirstName,10}");
+            ColorChangeConsole();
+            Console.Write($"{person.Patronumic,15}");
+            ColorChangeConsole();
+        }
+
+        /// <summary>
+        /// Изменение цвета в консоли
+        /// </summary>
+        static void ColorChangeConsole()
+        {
+            Console.ForegroundColor= ConsoleColor.Blue;
+            Console.Write("|");
             Console.ResetColor();
         }
 
