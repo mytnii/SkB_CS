@@ -225,6 +225,20 @@ namespace Notebook
         }
 
         /// <summary>
+        /// Печать адреса в консоль
+        /// </summary>
+        /// <param name="address">Адрес</param>
+        public static void PrintAddress(ref Address address)
+        {
+            Console.Write($"{address.Street,10}");
+            ColorChangeConsole();
+            Console.Write($"{address.HouseNumber,15}");
+            ColorChangeConsole();
+            Console.Write($"{address.FlatNumber,15}");
+            ColorChangeConsole();
+        }
+
+        /// <summary>
         /// Изменение цвета в консоли
         /// </summary>
         static void ColorChangeConsole()
