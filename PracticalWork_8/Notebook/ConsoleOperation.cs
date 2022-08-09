@@ -203,7 +203,8 @@ namespace Notebook
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine
                 (
-                "|---------------|----------|---------------|----------|---------------|---------------" +
+                "|---------------|---------------|---------------" +
+                "|---------------|---------------|---------------" +
                 "|---------------|---------------|"
                 );
             Console.ResetColor();
@@ -228,7 +229,7 @@ namespace Notebook
         /// Печать адреса в консоль
         /// </summary>
         /// <param name="address">Адрес</param>
-        public static void PrintAddress(ref Address address)
+        public static void PrintAddress( Address address)
         {
             Console.Write($"{address.Street,15}");
             ColorChangeConsole();
@@ -242,7 +243,7 @@ namespace Notebook
         /// Печать телефонных номеров в консоль
         /// </summary>
         /// <param name="phones">Номера телефонов</param>
-        public static void PrintPhones(ref Phones phones)
+        public static void PrintPhones( Phones phones)
         {
             Console.Write($"{phones.MobilePhone,15}");
             ColorChangeConsole();
@@ -257,7 +258,7 @@ namespace Notebook
         {
             for (int i = 0; i < value; i++)
             {
-                Console.Write($"{15}");
+                Console.Write("               ");
                 ColorChangeConsole();
             } 
         }
@@ -265,7 +266,7 @@ namespace Notebook
         /// <summary>
         /// Изменение цвета в консоли
         /// </summary>
-        static void ColorChangeConsole()
+        public static void ColorChangeConsole()
         {
             Console.ForegroundColor= ConsoleColor.Blue;
             Console.Write("|");
