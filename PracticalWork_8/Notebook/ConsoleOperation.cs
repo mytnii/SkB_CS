@@ -239,6 +239,32 @@ namespace Notebook
         }
 
         /// <summary>
+        /// Печать телефонных номеров в консоль
+        /// </summary>
+        /// <param name="phones">Номера телефонов</param>
+        public static void PrintPhones(ref Phones phones)
+        {
+            Console.Write($"{phones.MobilePhone,15}");
+            ColorChangeConsole();
+            Console.Write($"{phones.FlatPhone,15}");
+            ColorChangeConsole();
+        }
+
+        /// <summary>
+        /// Печать трех пустых значений
+        /// </summary>
+        public static void PrintTreeBlankValues()
+        {
+            ColorChangeConsole();
+            Console.Write($"{15}");
+            ColorChangeConsole();
+            Console.Write($"{10}");
+            ColorChangeConsole();
+            Console.Write($"{ 15}");
+            ColorChangeConsole();
+        }
+
+        /// <summary>
         /// Изменение цвета в консоли
         /// </summary>
         static void ColorChangeConsole()
