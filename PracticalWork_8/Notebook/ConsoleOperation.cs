@@ -183,9 +183,9 @@ namespace Notebook
             Console.WriteLine
                 (
                 $"|{ContentsTables.Last_name,15}|" +
-                $"{ContentsTables.First_name,10}|" +
+                $"{ContentsTables.First_name,15}|" +
                 $"{ContentsTables.Patronumic,15}|" +
-                $"{ContentsTables.Street,10}|" +
+                $"{ContentsTables.Street,15}|" +
                 $"{ContentsTables.House_number,15}|" +
                 $"{ContentsTables.Flat_number,15}|" +
                 $"{ContentsTables.Mobile_phone,15}|" +
@@ -218,7 +218,7 @@ namespace Notebook
             ColorChangeConsole();
             Console.Write($"{person.LastName,15}");
             ColorChangeConsole();
-            Console.Write($"{person.FirstName,10}");
+            Console.Write($"{person.FirstName,15}");
             ColorChangeConsole();
             Console.Write($"{person.Patronumic,15}");
             ColorChangeConsole();
@@ -230,7 +230,7 @@ namespace Notebook
         /// <param name="address">Адрес</param>
         public static void PrintAddress(ref Address address)
         {
-            Console.Write($"{address.Street,10}");
+            Console.Write($"{address.Street,15}");
             ColorChangeConsole();
             Console.Write($"{address.HouseNumber,15}");
             ColorChangeConsole();
@@ -251,17 +251,15 @@ namespace Notebook
         }
 
         /// <summary>
-        /// Печать трех пустых значений
+        /// Печать пустых значений
         /// </summary>
-        public static void PrintTreeBlankValues()
+        public static void PrintBlankValues(int value)
         {
-            ColorChangeConsole();
-            Console.Write($"{15}");
-            ColorChangeConsole();
-            Console.Write($"{10}");
-            ColorChangeConsole();
-            Console.Write($"{ 15}");
-            ColorChangeConsole();
+            for (int i = 0; i < value; i++)
+            {
+                Console.Write($"{15}");
+                ColorChangeConsole();
+            } 
         }
 
         /// <summary>
