@@ -14,7 +14,7 @@ namespace Notebook
         #region Поля
 
         private Person _person;           // Человек
-        public List<Address> _addresses; // Список адресов
+        private List<Address> _addresses; // Список адресов
         private List<Phones> _phones;     // Список телефонных номеров
 
         #endregion
@@ -43,6 +43,7 @@ namespace Notebook
             {
                 Console.WriteLine("Выбирете действие");
                 Console.WriteLine("1 - Добавить запись");
+                Console.WriteLine("2 - печать записей на экран");
 
                 string value = Console.ReadLine();
 
@@ -51,6 +52,64 @@ namespace Notebook
                     case "1":
                         noteBooks.Add(new NoteBook());
                         noteBooks[noteBooks.Count - 1].AddEntry();
+                        break;
+                    case "2":
+                        ConsoleOperation.PrintTable();
+
+                        foreach (var note in noteBooks)
+                        {
+                            ConsoleOperation.PrintPerson(ref note._person);
+
+                            if(note._addresses.Count > note._phones.Count)
+                            {
+                                for(int i = 0; i < note._addresses.Count; i++)
+                                {
+                                    if(i > 0)
+                                    {
+                                        ConsoleOperation.ColorChangeConsole();
+                                        ConsoleOperation.PrintBlankValues(3);
+                                    }
+
+                                    ConsoleOperation.PrintAddress( note._addresses[i]);
+
+                                    if(i > note._phones.Count - 1)
+                                    {
+                                        ConsoleOperation.PrintBlankValues(2);
+                                    }
+                                    else
+                                    {
+                                        ConsoleOperation.PrintPhones( note._phones[i]);
+                                    }
+
+                                    Console.WriteLine();
+                                }
+                            }
+                            else
+                            {
+                                for(int i = 0; i < note._phones.Count; i++)
+                                {
+                                    if(i > 0)
+                                    {
+                                        ConsoleOperation.ColorChangeConsole();
+                                        ConsoleOperation.PrintBlankValues(3);
+                                    }
+
+                                    if(i > note._addresses.Count - 1)
+                                    {
+                                        ConsoleOperation.PrintBlankValues(3);
+                                    }
+                                    else
+                                    {
+                                        ConsoleOperation.PrintAddress(note._addresses[i]);
+                                    }
+
+                                    ConsoleOperation.PrintPhones(note._phones[i]);
+                                    Console.WriteLine();
+                                }
+                            }
+
+                            ConsoleOperation.EndOfRecord();
+                        }
                         break;
                     default:
                         Console.WriteLine("Не коректный выбор действия");
