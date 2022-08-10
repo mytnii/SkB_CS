@@ -9,7 +9,7 @@ namespace Notebook
     /// <summary>
     /// Класс телефон
     /// </summary>
-    internal class Phones
+    public class Phones
     {
         #region Поля
 

@@ -9,7 +9,7 @@ namespace Notebook
     /// <summary>
     /// Класс адрес
     /// </summary>
-    internal class Address
+    public class Address
     {
         #region Поля
 

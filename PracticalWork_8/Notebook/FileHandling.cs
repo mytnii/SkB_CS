@@ -15,15 +15,40 @@ namespace Notebook
         /// </summary>
         /// <param name="ConcretNoteBook">Экземпляр для сериализации</param>
         /// <param name="file">Имя файла</param>
-        public static void SerializeNotebook(ref NoteBook ConcretNoteBook, ref string file)
+        public static void SerializeNotebook(List<NoteBook> ConcretNoteBook, ref string file)
         {
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(NoteBook));
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<NoteBook>));
 
-            FileStream fStream = new FileStream(file, FileMode.Append);
+            if(File.Exists(file))
+            {
+                File.Delete(file);
+            }
+
+            FileStream fStream = new FileStream(file, FileMode.Create);
 
             xmlSerializer.Serialize(fStream, ConcretNoteBook);
 
             fStream.Close();
+        }
+
+        /// <summary>
+        /// Десериализация записной книги
+        /// </summary>
+        /// <param name="file">Имя файла</param>
+        /// <returns></returns>
+        public static List<NoteBook> DeserializeNoteBook(ref string file)
+        {
+            List<NoteBook> noteBook = new List<NoteBook>();
+
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof (List<NoteBook>));
+
+            FileStream fStream = new FileStream(file, FileMode.Open);
+
+            noteBook = xmlSerializer.Deserialize(fStream) as List<NoteBook>;
+
+            fStream.Close();
+
+            return noteBook;
         }
     }
 }

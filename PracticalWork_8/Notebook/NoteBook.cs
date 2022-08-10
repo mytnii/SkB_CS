@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Notebook
 {
+    [Serializable]
     /// <summary>
     /// Класс Записная книжка
     /// </summary>
-    internal class NoteBook
+    public class NoteBook
     {
         #region Поля
 
@@ -17,6 +18,30 @@ namespace Notebook
         private List<Address> _addresses; // Список адресов
         private List<Phones> _phones;     // Список телефонных номеров
 
+        #endregion
+
+        #region Свойства
+
+        // Человек
+         public Person Persone
+        {
+            get { return _person; }
+            set { _person = value; }
+        }
+
+        // Список адресов
+        public List<Address> Addresses
+        {
+            get { return _addresses; }
+            set { _addresses = value; }
+        }
+
+        // Список телефонных номеров
+        public List <Phones> Phone
+        {
+            get { return _phones; }
+            set { _phones = value; }
+        }
         #endregion
 
         #region Конструкторы
@@ -37,8 +62,18 @@ namespace Notebook
         /// </summary>
         public static void Menu()
         {
-            List<NoteBook> noteBooks = new List<NoteBook>();
+            List<NoteBook> noteBooks;
             ConsoleKeyInfo key;
+            string fileNoteBook = "noteBook.xml";
+
+            if(File.Exists(fileNoteBook))
+            {
+                noteBooks = FileHandling.DeserializeNoteBook(ref fileNoteBook);
+            }
+            else
+            {
+                noteBooks = new List<NoteBook>();
+            }
             do
             {
                 Console.WriteLine("Выбирете действие");
@@ -55,7 +90,6 @@ namespace Notebook
                         break;
                     case "2":
                         ConsoleOperation.PrintTable();
-
                         foreach (var note in noteBooks)
                         {
                             ConsoleOperation.PrintPerson(ref note._person);
@@ -114,6 +148,12 @@ namespace Notebook
                     default:
                         Console.WriteLine("Не коректный выбор действия");
                         break;
+                }
+
+                if (value == "1")
+                {
+                    FileHandling.SerializeNotebook(noteBooks, ref fileNoteBook);
+
                 }
 
                 Console.WriteLine("Хотите продолжить Y/N");
